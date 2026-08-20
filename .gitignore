@@ -5,3 +5,6 @@ audit/gam/out/*
 # parsedmarc local state
 parsedmarc/data/
 *.env
+
+# macOS
+.DS_Store
