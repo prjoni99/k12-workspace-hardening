@@ -15,9 +15,9 @@ Not everyone who needs this reads markdown. Three editions, same source:
 
 | Edition | Who it's for | Notes |
 | --- | --- | --- |
-| **[Web edition](https://prjoni99.github.io/k12-workspace-hardening/)** | Anyone | Full package, sidebar navigation, searchable, works on a phone. Prints to PDF from the browser. |
-| **[Exec summary PDF](https://prjoni99.github.io/k12-workspace-hardening/K-12-Workspace-Hardening-Exec-Summary.pdf)** | Superintendent, cabinet, board | 5 pages. Threat picture, what changes, what it costs, what we need. |
-| **[Full package PDF](https://prjoni99.github.io/k12-workspace-hardening/K-12-Workspace-Hardening-Full-Package.pdf)** | District IT | 136 pages, everything, with a contents page. |
+| **[Web edition](https://k12.jonvargas.net/)** | Anyone | Full package, sidebar navigation, searchable, works on a phone. Prints to PDF from the browser. |
+| **[Exec summary PDF](https://k12.jonvargas.net/K-12-Workspace-Hardening-Exec-Summary.pdf)** | Superintendent, cabinet, board | 5 pages. Threat picture, what changes, what it costs, what we need. |
+| **[Full package PDF](https://k12.jonvargas.net/K-12-Workspace-Hardening-Full-Package.pdf)** | District IT | 136 pages, everything, with a contents page. |
 
 The web and PDF editions are **generated** from the markdown — edit the markdown, then
 `python3 tools/build-site.py` and `./tools/make-pdfs.sh`. Never edit them by hand; they
