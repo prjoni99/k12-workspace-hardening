@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Blocks committing district-identifying values into a public repo.
+# Install with: ./tools/install-hooks.sh
+exec python3 "$(git rev-parse --show-toplevel)/tools/check-no-district-data.py" --staged

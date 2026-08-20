@@ -27,7 +27,10 @@ will be overwritten.
 
 ## Start here
 
-1. Fill in **[config/district-profile.md](config/district-profile.md)** — nothing else
+0. **Install the commit guard: `./tools/install-hooks.sh`** — it blocks committing
+   real district values into a shared repo. Do this before step 1.
+1. Fill in **[config/district-profile.md](config/district-profile.md)** *(keep the
+   filled-in copy out of any public repo — see [CONTRIBUTING.md](CONTRIBUTING.md))* — nothing else
    works until the OU map and bulk-sender inventory exist.
 2. Read **[ASSUMPTIONS.md](ASSUMPTIONS.md)** — 11 assumptions were made in place of the
    unfilled Context block. Confirm or correct each.

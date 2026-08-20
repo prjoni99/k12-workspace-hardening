@@ -18,6 +18,18 @@ something that could not be confirmed against current documentation on 2026-08-2
 can confirm it in a live console, that's a real contribution. Say which edition your
 tenant is, since some of them are edition-dependent.
 
+## Set up the commit guard first
+
+```bash
+./tools/install-hooks.sh
+```
+
+This installs a pre-commit hook that **blocks district-identifying data** — real
+domains, filled-in OU paths, the bulk-sender inventory. This package is a public
+template; committing your own values publishes a targeting map of your environment
+that survives in git history even if you revert it. Keep real values in an internal
+doc or a private repo.
+
 ## Ground rules
 
 - **No PII, ever.** No student, staff, or guardian names, addresses, or IDs — not in
