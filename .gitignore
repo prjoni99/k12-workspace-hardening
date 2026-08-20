@@ -1,0 +1,7 @@
+# GAM audit output — may contain staff/student PII. Never commit.
+audit/gam/out/*
+!audit/gam/out/.gitkeep
+
+# parsedmarc local state
+parsedmarc/data/
+*.env
