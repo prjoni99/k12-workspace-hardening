@@ -44,6 +44,26 @@ doc or a private repo.
 - **Keep the six fields.** Every setting carries path, per-OU values, edition, impact,
   rollback, and source. See [CLAUDE.md](CLAUDE.md).
 
+## Checking links
+
+```bash
+python3 tools/check-links.py
+```
+
+Audits every link three ways and exits non-zero on any finding:
+
+- **A. Repo integrity** — does each relative link point at a file that exists? This is
+  what a reader following links on GitHub hits.
+- **B. Heading anchors** — does each `#in-document` link match a real heading?
+- **C. Site fidelity** — in the generated site, does each link that *names* a file resolve
+  to that file's own section? Not merely to *some* section.
+
+Check C exists because the failure that shipped twice was links that resolved cleanly and
+resolved somewhere wrong — a dangling-anchor check reports those as fine. It also flags
+links silently dropped from the output.
+
+`tools/deploy-pages.sh` runs this, so a regression cannot reach the live site.
+
 ## Rebuilding the published editions
 
 The web and PDF editions are generated from the markdown — never hand-edited.

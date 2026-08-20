@@ -136,7 +136,9 @@ def render(md, slug_prefix='', link_map=None, src_path=''):
             target = posixpath.normpath(posixpath.join(src_dir, href)).lstrip('./')
             anchor = link_map.get(target) or link_map.get(target.rstrip('/') + '/')
             if anchor and frag:
-                return f'[{label}](#{anchor}-{frag})'
+                # Heading ids are '<slug>-<anchor>'; section ids are 'doc-<slug>'.
+                base = anchor[4:] if anchor.startswith('doc-') else anchor
+                return f'[{label}](#{base}-{frag})'
             if anchor:
                 return f'[{label}](#{anchor})'
             UNRESOLVED.append(f'{src_path or "?"} -> {href}')

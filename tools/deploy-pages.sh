@@ -14,6 +14,7 @@ echo "Deploying to $TARGET"
 
 python3 tools/check-no-district-data.py
 python3 tools/build-site.py
+python3 tools/check-links.py --quiet
 [[ "${SKIP_PDF:-}" == "1" ]] || ./tools/make-pdfs.sh
 
 TMP=$(mktemp -d); trap 'rm -rf "$TMP"' EXIT
