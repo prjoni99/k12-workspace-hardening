@@ -13,7 +13,7 @@ genuinely take time (2SV adoption, vendor DKIM, instructional coordination).
 | [1](#phase-1--quick-wins) | Quick wins | 2–3 weeks | Minimal |
 | [2](#phase-2--2sv-and-oauth) | 2SV + OAuth lockdown | 6–8 weeks | **High** |
 | [3](#phase-3--dmarc-ramp) | DMARC ramp | 8–12 weeks | None if done right, **severe if rushed** |
-| [4](#phase-4--student-tightening) | Students, CAA, DLP | 4–6 weeks | Moderate |
+| [4](#phase-4--student-tightening-caa-dlp) | Students, CAA, DLP | 4–6 weeks | Moderate |
 | [Ongoing](#ongoing-operations) | Operations | Forever | — |
 
 > **Do not reorder.** Phase 1 before Phase 0 means changing settings you haven't baselined

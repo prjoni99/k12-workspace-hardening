@@ -39,12 +39,31 @@ def staged_files():
     return [f for f in out.split('\n') if f.strip()]
 
 
+TEXT_SUFFIXES = {'.md', '.txt', '.yml', '.yaml', '.ini', '.sh', '.py', '.json'}
+
+
 def content(path, staged):
+    """Read a file as text, or return '' if it is not a text file.
+
+    Binary blobs must never be decoded here: a staged PDF previously raised
+    UnicodeDecodeError and aborted the commit for a reason unrelated to the
+    check, which looks exactly like the guard rejecting the commit.
+    """
+    if pathlib.Path(path).suffix.lower() not in TEXT_SUFFIXES:
+        return ''
     if staged:
-        r = subprocess.run(['git', 'show', f':{path}'], capture_output=True, text=True)
-        return r.stdout if r.returncode == 0 else ''
+        r = subprocess.run(['git', 'show', f':{path}'], capture_output=True)
+        if r.returncode != 0:
+            return ''
+        try:
+            return r.stdout.decode('utf-8')
+        except UnicodeDecodeError:
+            return ''
     p = ROOT / path
-    return p.read_text() if p.exists() else ''
+    try:
+        return p.read_text()
+    except (UnicodeDecodeError, OSError):
+        return ''
 
 
 def check_profile(text):

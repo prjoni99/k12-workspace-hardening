@@ -8,6 +8,7 @@ No third-party dependencies - python3 alone.
 """
 import html
 import pathlib
+import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
@@ -40,7 +41,15 @@ MANIFEST = [
     ('playbooks/07-lookalike-domain-response.md',   'pb-07', '07 · Lookalike domain',            'run'),
     ('audit/gam/README.md',                'gam',       'GAM audit scripts',            'run'),
     ('audit/gam/remediation/README.md',    'gam-rem',   'GAM remediation',              'run'),
-    ('comms/README.md',                    'comms',     'Communication templates',      'run'),
+    ('comms/README.md',                    'comms',     'How to use these',             'say'),
+    ('comms/01-phase1-staff-notice.md',    'cm-01',     '01 · Phase 1 staff notice',    'say'),
+    ('comms/02-phase2-2sv.md',             'cm-02',     '02 · 2SV rollout',             'say'),
+    ('comms/03-phase2-apps.md',            'cm-03',     '03 · Third-party apps',        'say'),
+    ('comms/04-phase3-vendor-notice.md',   'cm-04',     '04 · Vendor authentication',   'say'),
+    ('comms/05-phase4-students.md',        'cm-05',     '05 · Student notice',          'say'),
+    ('comms/06-phase4-guardians.md',       'cm-06',     '06 · Guardian notice',         'say'),
+    ('comms/07-incident-staff-notice.md',  'cm-07',     '07 · Post-incident notice',    'say'),
+    ('comms/08-service-sweep-notice.md',   'cm-08',     '08 · Service sweep notice',    'say'),
     ('config/district-profile.md',         'profile',   'District profile (fill first)','ref'),
     ('ASSUMPTIONS.md',                     'assume',    'Assumptions',                  'ref'),
     ('CLAUDE.md',                          'conv',      'Repo conventions',             'ref'),
@@ -50,6 +59,7 @@ TRACKS = [
     ('lead', 'Leadership', 'Read this one. One page, no jargon.'),
     ('tech', 'The controls', 'Setting-by-setting, per OU, with sources.'),
     ('run',  'Run it',      'Rollout order, incident procedures, audit tooling.'),
+    ('say',  'Tell people', 'Ready-to-send templates for staff, guardians and vendors.'),
     ('ref',  'Reference',   'Fill-in-first, assumptions, conventions.'),
 ]
 
@@ -72,20 +82,25 @@ RISK = [
 
 
 def build():
-    link_map = {pathlib.Path(f).name: f'doc-{slug}' for f, slug, _, _ in MANIFEST}
-    # files that exist but are not their own section resolve to the nearest home
-    for extra, target in [('README.md', 'top'), ('TODO.md', 'top'),
-                          ('00-index.md', 'doc-pb-index')]:
-        link_map.setdefault(extra, target)
-    for p in (ROOT / 'comms').glob('*.md'):
-        link_map.setdefault(p.name, 'doc-comms')
+    # Keyed by repo-relative POSIX path. Keying on bare filenames silently
+    # collides - there are three README.md files - and routes links to whichever
+    # happened to be last in the manifest.
+    link_map = {f: f'doc-{slug}' for f, slug, _, _ in MANIFEST}
+    link_map.update({
+        'README.md': 'top', 'TODO.md': 'top', 'CONTRIBUTING.md': 'top', 'LICENSE': 'top',
+        'comms': 'doc-comms', 'comms/': 'doc-comms',
+        'playbooks': 'doc-pb-index', 'playbooks/': 'doc-pb-index',
+        'audit/gam': 'doc-gam', 'audit/gam/': 'doc-gam',
+        'audit/gam/remediation': 'doc-gam-rem', 'audit/gam/remediation/': 'doc-gam-rem',
+        'checklists/rollout-phases.md': 'doc-rollout',
+    })
     for p in (ROOT / 'audit/gam').rglob('*.sh'):
-        link_map.setdefault(p.name, 'doc-gam')
+        link_map.setdefault(str(p.relative_to(ROOT)), 'doc-gam')
 
     sections, navs = [], {t: [] for t, _, _ in TRACKS}
     for f, slug, label, track in MANIFEST:
         src = (ROOT / f).read_text()
-        body, toc = mdlib.render(src, slug, link_map)
+        body, toc = mdlib.render(src, slug, link_map, f)
         subs = [(i, t) for lvl, i, t in toc if lvl == 2][:14]
         navs[track].append((slug, label, subs))
         sections.append(
@@ -119,7 +134,26 @@ def build():
                      ('@@MED@@', str(counts['med'])),
                      ('@@LOW@@', str(counts['low']))):
         page = page.replace(key, val)
+    _validate(page)
     return page
+
+
+def _validate(page):
+    """Refuse to emit a page with links that go nowhere."""
+    ids = set(re.findall(r'\sid="([^"]+)"', page))
+    dangling = sorted({a for a in re.findall(r'<a href="#([^"]*)"', page)
+                       if a and a not in ids})
+    problems = []
+    if dangling:
+        problems.append(f'{len(dangling)} dangling anchor(s): ' + ', '.join(dangling[:12]))
+    if mdlib.UNRESOLVED:
+        uniq = sorted(set(mdlib.UNRESOLVED))
+        problems.append(f'{len(uniq)} unresolved link target(s): ' + '; '.join(uniq[:12]))
+    for f, slug, label, _ in MANIFEST:
+        if f'id="doc-{slug}"' not in page:
+            problems.append(f'section missing from output: {f} ({label})')
+    if problems:
+        raise SystemExit('BUILD FAILED\n  ' + '\n  '.join(problems))
 
 
 TEMPLATE = r"""<title>K-12 Workspace Hardening</title>

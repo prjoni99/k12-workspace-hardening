@@ -44,6 +44,14 @@ FULL = [
     ('audit/gam/README.md',                'gam',      'GAM audit scripts'),
     ('audit/gam/remediation/README.md',    'gam-rem',  'GAM remediation scripts'),
     ('comms/README.md',                    'comms',    'Communication templates'),
+    ('comms/01-phase1-staff-notice.md',    'cm-01',    'Template 01 · Phase 1 staff notice'),
+    ('comms/02-phase2-2sv.md',             'cm-02',    'Template 02 · 2SV rollout'),
+    ('comms/03-phase2-apps.md',            'cm-03',    'Template 03 · Third-party apps'),
+    ('comms/04-phase3-vendor-notice.md',   'cm-04',    'Template 04 · Vendor authentication'),
+    ('comms/05-phase4-students.md',        'cm-05',    'Template 05 · Student notice'),
+    ('comms/06-phase4-guardians.md',       'cm-06',    'Template 06 · Guardian notice'),
+    ('comms/07-incident-staff-notice.md',  'cm-07',    'Template 07 · Post-incident notice'),
+    ('comms/08-service-sweep-notice.md',   'cm-08',    'Template 08 · Service sweep notice'),
     ('config/district-profile.md',         'profile',  'District profile'),
     ('ASSUMPTIONS.md',                     'assume',   'Assumptions'),
 ]
@@ -151,7 +159,7 @@ HEAD = """<title>@@TITLE@@</title>
 
 def build(mode):
     manifest = EXEC if mode == 'exec' else FULL
-    link_map = {pathlib.Path(f).name: f'doc-{s}' for f, s, _ in manifest}
+    link_map = {f: f'doc-{s}' for f, s, _ in manifest}
     is_exec = mode == 'exec'
 
     title = ('Email Security: What We’re Changing and Why' if is_exec
@@ -185,7 +193,7 @@ def build(mode):
         parts.append(f'<div class="toc"><h2>Contents</h2><ol>{toc}</ol></div>')
 
     for i, (f, slug, _label) in enumerate(manifest):
-        body, _ = mdlib.render((ROOT / f).read_text(), slug, link_map)
+        body, _ = mdlib.render((ROOT / f).read_text(), slug, link_map, f)
         first = ' style="page-break-before:auto"' if (is_exec or i == 0) else ''
         parts.append(f'<section class="doc" id="doc-{slug}"{first}>'
                      f'<div class="doc-meta">{html.escape(f)}</div>{body}</section>')

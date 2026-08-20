@@ -6,7 +6,11 @@ lists, inline emphasis/code/links, HRs) and nothing else. No dependency
 means the site rebuilds on any machine with python3 and nothing installed.
 """
 import html
+import posixpath
 import re
+
+# Links that could not be resolved to a section; the builder fails on these.
+UNRESOLVED = []
 
 
 def _inline(t):
@@ -85,27 +89,58 @@ def _severity(text):
     return ''
 
 
-def render(md, slug_prefix='', link_map=None):
-    """Return (html, [(level, id, text), ...]) for a single document."""
+def gh_slug(text):
+    """GitHub's heading-anchor algorithm: lowercase, drop anything that is not
+    alphanumeric/space/hyphen, then spaces to hyphens. Matching it exactly is what
+    makes in-document links like (#phase-0--baseline) resolve - note the double
+    hyphen, which is the em dash being removed and leaving two spaces behind."""
+    t = re.sub(r'<[^>]+>', '', re.sub(r'[*`\[\]()#]', '', text)).strip().lower()
+    t = re.sub(r'[^a-z0-9 \-]', '', t)
+    return re.sub(r'\s', '-', t).strip('-')
+
+
+def render(md, slug_prefix='', link_map=None, src_path=''):
+    """Return (html, [(level, id, text), ...]) for a single document.
+
+    link_map is keyed by repo-relative POSIX path. src_path is this document's
+    repo-relative path, used to resolve relative links correctly - keying on
+    bare filenames collides (three different README.md files) and silently
+    routes links to the wrong section.
+    """
     link_map = link_map or {}
+    src_dir = posixpath.dirname(src_path)
     lines = md.split('\n')
     out, toc = [], []
     i, n = 0, len(lines)
     seen = {}
 
     def mk_id(text):
-        base = re.sub(r'[^a-z0-9]+', '-', re.sub(r'[*`\[\]()#]', '', text).lower()).strip('-')
+        base = gh_slug(text)
         base = f'{slug_prefix}-{base}' if slug_prefix else base
         seen[base] = seen.get(base, 0) + 1
         return base if seen[base] == 1 else f'{base}-{seen[base]}'
 
     def fix_links(chunk):
         def sub(m):
-            href = m.group(2)
-            if href.startswith(('http', 'mailto:', '#')):
+            label, href = m.group(1), m.group(2)
+            if href.startswith(('http', 'mailto:')):
                 return m.group(0)
-            key = href.split('/')[-1]
-            return f'[{m.group(1)}](#{link_map[key]})' if key in link_map else f'[{m.group(1)}]()'
+            # In-document anchor: heading ids carry the doc prefix, so must this.
+            if href.startswith('#'):
+                return f'[{label}](#{slug_prefix}-{href[1:]})' if slug_prefix else m.group(0)
+            frag = ''
+            if '#' in href:
+                href, frag = href.split('#', 1)
+            if not href:
+                return f'[{label}](#{slug_prefix}-{frag})' if slug_prefix else m.group(0)
+            target = posixpath.normpath(posixpath.join(src_dir, href)).lstrip('./')
+            anchor = link_map.get(target) or link_map.get(target.rstrip('/') + '/')
+            if anchor and frag:
+                return f'[{label}](#{anchor}-{frag})'
+            if anchor:
+                return f'[{label}](#{anchor})'
+            UNRESOLVED.append(f'{src_path or "?"} -> {href}')
+            return label  # drop the link rather than emit a dead one
         return re.sub(r'\[([^\]]*)\]\(([^)\s]+)\)', sub, chunk)
 
     while i < n:
@@ -173,7 +208,7 @@ def render(md, slug_prefix='', link_map=None):
             while i < n and (lines[i].startswith('>') or (buf and lines[i].strip() and not lines[i].startswith(('#', '-', '|', '`')))):
                 buf.append(re.sub(r'^>\s?', '', lines[i]))
                 i += 1
-            inner, _ = render('\n'.join(buf), slug_prefix + '-q', link_map)
+            inner, _ = render('\n'.join(buf), slug_prefix, link_map, src_path)
             joined = '\n'.join(buf)
             kind = 'warn' if ('⚠' in joined or 'Do not' in joined or 'never' in joined.lower()[:80]) else ''
             kind = 'verify' if '[VERIFY' in joined else kind
