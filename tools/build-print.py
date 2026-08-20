@@ -56,6 +56,30 @@ FULL = [
     ('ASSUMPTIONS.md',                     'assume',   'Assumptions'),
 ]
 
+def script_entries():
+    out = []
+    for d, pref in (('audit/gam', 'sh'), ('audit/gam/remediation', 'shr')):
+        for f in sorted((ROOT / d).glob('*.sh')):
+            out.append((str(f.relative_to(ROOT)), f'{pref}-{f.stem}',
+                        f.name + (' (remediation)' if pref == 'shr' else '')))
+    return out
+
+
+def script_to_markdown(path):
+    text = (ROOT / path).read_text()
+    lead, lines = [], text.split('\n')
+    for ln in lines[1:]:
+        if ln.startswith('#'):
+            lead.append(ln.lstrip('#').strip())
+        elif not ln.strip() and lead:
+            continue
+        else:
+            break
+    blurb = ' '.join(x for x in lead if x).strip()
+    return (f'# {pathlib.Path(path).name}\n\n'
+            + (f'{blurb}\n\n' if blurb else '') + '```bash\n' + text + '\n```\n')
+
+
 CSS = r"""
 @page{size:letter; margin:16mm 15mm 18mm}
 @page:first{margin:0}
@@ -158,7 +182,7 @@ HEAD = """<title>@@TITLE@@</title>
 
 
 def build(mode):
-    manifest = EXEC if mode == 'exec' else FULL
+    manifest = EXEC if mode == 'exec' else FULL + script_entries()
     link_map = {f: f'doc-{s}' for f, s, _ in manifest}
     is_exec = mode == 'exec'
 
@@ -193,7 +217,8 @@ def build(mode):
         parts.append(f'<div class="toc"><h2>Contents</h2><ol>{toc}</ol></div>')
 
     for i, (f, slug, _label) in enumerate(manifest):
-        body, _ = mdlib.render((ROOT / f).read_text(), slug, link_map, f)
+        src = script_to_markdown(f) if f.endswith('.sh') else (ROOT / f).read_text()
+        body, _ = mdlib.render(src, slug, link_map, f)
         first = ' style="page-break-before:auto"' if (is_exec or i == 0) else ''
         parts.append(f'<section class="doc" id="doc-{slug}"{first}>'
                      f'<div class="doc-meta">{html.escape(f)}</div>{body}</section>')

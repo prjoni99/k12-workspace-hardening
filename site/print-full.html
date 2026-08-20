@@ -99,7 +99,7 @@ table,blockquote{page-break-inside:avoid}
 <h1>K-12 Google Workspace Anti-Phishing Hardening Package</h1><p class="sub">A complete, setting-by-setting hardening package for a public school district on Google Workspace for Education — console paths, per-OU values, rollout order, and incident procedures.</p>
 <div class="facts"><div><b>11</b>control documents</div><div><b>7</b>incident playbooks</div><div><b>15</b>audit scripts</div><div><b>86</b>cited sources</div></div>
 <div class="foot"><span>Research date 20 August 2026</span><span>Console paths verified against current Google documentation</span></div></div>
-<div class="toc"><h2>Contents</h2><ol><li><span class="n">00</span><span>Executive summary</span></li><li><span class="n">01</span><span>Threat landscape</span></li><li><span class="n">02</span><span>Gmail</span></li><li><span class="n">03</span><span>Calendar</span></li><li><span class="n">04</span><span>Drive &amp; Docs</span></li><li><span class="n">05</span><span>Groups</span></li><li><span class="n">06</span><span>Other services</span></li><li><span class="n">07</span><span>Accounts, MFA &amp; admins</span></li><li><span class="n">08</span><span>OAuth &amp; app control</span></li><li><span class="n">09</span><span>Monitoring &amp; response</span></li><li><span class="n">10</span><span>SPF, DKIM &amp; DMARC</span></li><li><span class="n">11</span><span>Rollout phases</span></li><li><span class="n">12</span><span>Playbooks</span></li><li><span class="n">13</span><span>Playbook 01 · Compromised staff account</span></li><li><span class="n">14</span><span>Playbook 02 · Compromised student account</span></li><li><span class="n">15</span><span>Playbook 03 · Post-delivery phish purge</span></li><li><span class="n">16</span><span>Playbook 04 · Payroll diversion</span></li><li><span class="n">17</span><span>Playbook 05 · Vendor invoice fraud</span></li><li><span class="n">18</span><span>Playbook 06 · Mass calendar spam</span></li><li><span class="n">19</span><span>Playbook 07 · Lookalike domain</span></li><li><span class="n">20</span><span>GAM audit scripts</span></li><li><span class="n">21</span><span>GAM remediation scripts</span></li><li><span class="n">22</span><span>Communication templates</span></li><li><span class="n">23</span><span>Template 01 · Phase 1 staff notice</span></li><li><span class="n">24</span><span>Template 02 · 2SV rollout</span></li><li><span class="n">25</span><span>Template 03 · Third-party apps</span></li><li><span class="n">26</span><span>Template 04 · Vendor authentication</span></li><li><span class="n">27</span><span>Template 05 · Student notice</span></li><li><span class="n">28</span><span>Template 06 · Guardian notice</span></li><li><span class="n">29</span><span>Template 07 · Post-incident notice</span></li><li><span class="n">30</span><span>Template 08 · Service sweep notice</span></li><li><span class="n">31</span><span>District profile</span></li><li><span class="n">32</span><span>Assumptions</span></li></ol></div>
+<div class="toc"><h2>Contents</h2><ol><li><span class="n">00</span><span>Executive summary</span></li><li><span class="n">01</span><span>Threat landscape</span></li><li><span class="n">02</span><span>Gmail</span></li><li><span class="n">03</span><span>Calendar</span></li><li><span class="n">04</span><span>Drive &amp; Docs</span></li><li><span class="n">05</span><span>Groups</span></li><li><span class="n">06</span><span>Other services</span></li><li><span class="n">07</span><span>Accounts, MFA &amp; admins</span></li><li><span class="n">08</span><span>OAuth &amp; app control</span></li><li><span class="n">09</span><span>Monitoring &amp; response</span></li><li><span class="n">10</span><span>SPF, DKIM &amp; DMARC</span></li><li><span class="n">11</span><span>Rollout phases</span></li><li><span class="n">12</span><span>Playbooks</span></li><li><span class="n">13</span><span>Playbook 01 · Compromised staff account</span></li><li><span class="n">14</span><span>Playbook 02 · Compromised student account</span></li><li><span class="n">15</span><span>Playbook 03 · Post-delivery phish purge</span></li><li><span class="n">16</span><span>Playbook 04 · Payroll diversion</span></li><li><span class="n">17</span><span>Playbook 05 · Vendor invoice fraud</span></li><li><span class="n">18</span><span>Playbook 06 · Mass calendar spam</span></li><li><span class="n">19</span><span>Playbook 07 · Lookalike domain</span></li><li><span class="n">20</span><span>GAM audit scripts</span></li><li><span class="n">21</span><span>GAM remediation scripts</span></li><li><span class="n">22</span><span>Communication templates</span></li><li><span class="n">23</span><span>Template 01 · Phase 1 staff notice</span></li><li><span class="n">24</span><span>Template 02 · 2SV rollout</span></li><li><span class="n">25</span><span>Template 03 · Third-party apps</span></li><li><span class="n">26</span><span>Template 04 · Vendor authentication</span></li><li><span class="n">27</span><span>Template 05 · Student notice</span></li><li><span class="n">28</span><span>Template 06 · Guardian notice</span></li><li><span class="n">29</span><span>Template 07 · Post-incident notice</span></li><li><span class="n">30</span><span>Template 08 · Service sweep notice</span></li><li><span class="n">31</span><span>District profile</span></li><li><span class="n">32</span><span>Assumptions</span></li><li><span class="n">33</span><span>01-users-without-2sv.sh</span></li><li><span class="n">34</span><span>02-forwarding-and-filters.sh</span></li><li><span class="n">35</span><span>03-delegates.sh</span></li><li><span class="n">36</span><span>04-oauth-tokens.sh</span></li><li><span class="n">37</span><span>05-app-passwords.sh</span></li><li><span class="n">38</span><span>06-group-settings.sh</span></li><li><span class="n">39</span><span>07-admin-roles.sh</span></li><li><span class="n">40</span><span>08-ou-service-state.sh</span></li><li><span class="n">41</span><span>_lib.sh</span></li><li><span class="n">42</span><span>run-all.sh</span></li><li><span class="n">43</span><span>_rlib.sh (remediation)</span></li><li><span class="n">44</span><span>bulk-reset-passwords.sh (remediation)</span></li><li><span class="n">45</span><span>lockdown-group.sh (remediation)</span></li><li><span class="n">46</span><span>remove-forwarding.sh (remediation)</span></li><li><span class="n">47</span><span>revoke-tokens.sh (remediation)</span></li></ol></div>
 <section class="doc" id="doc-exec" style="page-break-before:auto"><div class="doc-meta">docs/10-exec-summary.md</div><h1 id="exec-email-security-what-were-changing-and-why">Email Security: What We&#x27;re Changing and Why</h1>
 <p><strong>For: Superintendent and Cabinet</strong> · <strong>From: Technology Department</strong> · <strong>Date: 2026-08-20</strong></p>
 <hr>
@@ -162,7 +162,7 @@ table,blockquote{page-break-inside:avoid}
 <p><strong>How it runs.</strong> Staff member receives a spoofed HR or self-service-portal message: &quot;annual direct deposit verification&quot;, &quot;your payroll profile needs re-confirmation&quot;. Credentials are harvested, the attacker signs into the SIS/ERP employee portal and changes the deposit routing number, usually to a prepaid debit account. Discovery happens on payday — one full cycle later. Frequently the mailbox is also configured with a filter that auto-archives anything containing &quot;direct deposit&quot; so the confirmation email is never seen.</p>
 <p>Attackers move from stolen credentials to payroll changes as a routine escalation path (<a href="https://www.senki.org/payroll-diversion-fraud/" class="ext" target="_blank" rel="noopener noreferrer">SENKI payroll diversion analysis</a>).</p>
 <p><strong>Controls:</strong></p>
-<ul><li>Phishing-resistant 2SV (passkey/security key) required for Finance-HR — <a href="#doc-identity">docs/06-accounts-mfa-admins.md</a> §3</li><li>&quot;direct deposit&quot; / &quot;routing number&quot; keyword tripwire — <a href="#doc-gmail">docs/01-gmail.md</a> §7</li><li>External forwarding disabled for Finance-HR — <a href="#doc-gmail">docs/01-gmail.md</a> §5</li><li>Filter/forwarding/delegate audit — audit/gam/02-forwarding-and-filters.sh</li><li><strong>Non-Workspace control that matters more than any of the above:</strong> the payroll system must require out-of-band verification for any banking change. Documented as a hand-off in <a href="#doc-pb-04">playbooks/04-payroll-diversion-attempt.md</a>.</li></ul>
+<ul><li>Phishing-resistant 2SV (passkey/security key) required for Finance-HR — <a href="#doc-identity">docs/06-accounts-mfa-admins.md</a> §3</li><li>&quot;direct deposit&quot; / &quot;routing number&quot; keyword tripwire — <a href="#doc-gmail">docs/01-gmail.md</a> §7</li><li>External forwarding disabled for Finance-HR — <a href="#doc-gmail">docs/01-gmail.md</a> §5</li><li>Filter/forwarding/delegate audit — <a href="#doc-sh-02-forwarding-and-filters">audit/gam/02-forwarding-and-filters.sh</a></li><li><strong>Non-Workspace control that matters more than any of the above:</strong> the payroll system must require out-of-band verification for any banking change. Documented as a hand-off in <a href="#doc-pb-04">playbooks/04-payroll-diversion-attempt.md</a>.</li></ul>
 <hr>
 <h2 id="threats-t3--vendor-email-compromise--invoice-fraud">T3 — Vendor email compromise / invoice fraud</h2>
 <p><strong>How it runs.</strong> A real vendor&#x27;s mailbox is compromised. The attacker reads the existing thread with district AP, then replies <strong>in that thread</strong> with updated remittance details. Everything authenticates because it genuinely is the vendor&#x27;s account. This is the highest per-incident loss category in K-12 — phishing against accounts-payable staff has produced some of the largest direct financial losses districts have experienced (<a href="https://k12cybersecure.com/tag/phishing/" class="ext" target="_blank" rel="noopener noreferrer">K-12 Cybersecurity Resource Center</a>).</p>
@@ -276,7 +276,7 @@ table,blockquote{page-break-inside:avoid}
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Setting</th><th style="text-align:left">Path</th><th style="text-align:left">Staff</th><th style="text-align:left">Students</th><th style="text-align:left">Finance-HR</th><th style="text-align:left">Admins</th><th style="text-align:left">Edition</th><th style="text-align:left">Impact</th><th style="text-align:left">Source</th></tr></thead><tbody><tr><td style="text-align:left">POP and IMAP access</td><td style="text-align:left">Gmail &gt; End User Access &gt; POP and IMAP access</td><td style="text-align:left"><strong>Off</strong> <em>(see note)</em></td><td style="text-align:left"><strong>Off</strong></td><td style="text-align:left"><strong>Off</strong></td><td style="text-align:left">Off</td><td style="text-align:left">All</td><td style="text-align:left">Removes the blind spot where link warnings don&#x27;t apply. <strong>Check for legitimate users first</strong> — see below</td><td style="text-align:left"><a href="https://support.google.com/a/answer/105694" class="ext" target="_blank" rel="noopener noreferrer">ref</a></td></tr><tr><td style="text-align:left">Automatic forwarding</td><td style="text-align:left">Gmail &gt; End User Access &gt; Automatic forwarding</td><td style="text-align:left"><strong>Off</strong></td><td style="text-align:left"><strong>Off</strong></td><td style="text-align:left"><strong>Off</strong></td><td style="text-align:left">Off</td><td style="text-align:left">All</td><td style="text-align:left">On by default. Off removes the forwarding option from Gmail settings entirely. <strong>The #1 attacker persistence mechanism</strong> — survives a password reset</td><td style="text-align:left"><a href="https://support.google.com/a/answer/14724207" class="ext" target="_blank" rel="noopener noreferrer">ref</a></td></tr><tr><td style="text-align:left">Comprehensive mail storage</td><td style="text-align:left">Gmail &gt; End User Access &gt; Comprehensive mail storage</td><td style="text-align:left"><strong>On</strong></td><td style="text-align:left">On</td><td style="text-align:left">On</td><td style="text-align:left">On</td><td style="text-align:left">All</td><td style="text-align:left">Ensures all messages land in Gmail mailboxes, including SMTP-relay and non-Gmail-mailbox traffic. <strong>Required for the investigation tool and Vault to see everything</strong> — without it, IR has gaps</td><td style="text-align:left"><a href="https://knowledge.workspace.google.com/admin/gmail/advanced/working-with-gmail-admin-settings-in-google-workspace" class="ext" target="_blank" rel="noopener noreferrer">ref</a></td></tr><tr><td style="text-align:left">Warn for external recipients</td><td style="text-align:left">Gmail &gt; End User Access &gt; Warn for external recipients</td><td style="text-align:left">On</td><td style="text-align:left">On</td><td style="text-align:left">On</td><td style="text-align:left">On</td><td style="text-align:left">All</td><td style="text-align:left">Warns when composing to an external address. Reduces accidental student-data disclosure; costs nothing</td><td style="text-align:left"><a href="https://support.google.com/a/answer/7380041" class="ext" target="_blank" rel="noopener noreferrer">ref</a></td></tr></tbody></table></div>
 <h3 id="gmail-automatic-forwarding--why-this-is-not-optional">Automatic forwarding — why this is not optional</h3>
 <p>When an account is compromised, the attacker&#x27;s first move is persistence. A forwarding rule to an external address survives the password reset, survives the &quot;we&#x27;ve secured the account&quot; email, and keeps delivering the CFO&#x27;s mail for months. Turning the feature off at the OU level means it cannot be set.</p>
-<p>If the district cannot turn forwarding off for all staff, the <strong>minimum</strong> is Finance-HR and Students, and the fallback is Gmail&#x27;s setting to restrict automatic forwarding to a list of approved domains rather than allowing arbitrary external addresses. Either way, audit/gam/02-forwarding-and-filters.sh runs monthly regardless — the setting prevents <em>new</em> rules; it does not remove existing ones.</p>
+<p>If the district cannot turn forwarding off for all staff, the <strong>minimum</strong> is Finance-HR and Students, and the fallback is Gmail&#x27;s setting to restrict automatic forwarding to a list of approved domains rather than allowing arbitrary external addresses. Either way, <a href="#doc-sh-02-forwarding-and-filters">audit/gam/02-forwarding-and-filters.sh</a> runs monthly regardless — the setting prevents <em>new</em> rules; it does not remove existing ones.</p>
 <h3 id="gmail-blast-radius-popimap">⚠ Blast radius: POP/IMAP</h3>
 <p>Before turning POP/IMAP off, run <a href="#doc-gam">audit/gam/README.md</a> → the IMAP usage check, and look for:</p>
 <ul><li>Staff using Outlook or Apple Mail against Gmail (common with long-tenured staff)</li><li><strong>Copier / MFP scan-to-email</strong> configured with an SMTP account</li><li>Legacy scripts and applications polling a mailbox via IMAP</li><li>Alarm/HVAC/bell systems with a mailbox</li><li>Third-party archiving or e-signature tools reading a shared mailbox</li></ul>
@@ -348,7 +348,7 @@ Do not reply. Report it: &lt;ABUSE_ALIAS&gt;</code></pre></div>
 <hr>
 <h2 id="gmail-11-pre-flight-inventory">11. Pre-flight inventory</h2>
 <p>Complete before Phase 1. This is the list that prevents §3&#x27;s blast radius from landing on the help desk.</p>
-<ul><li class="task"><span class="box"></span><span>Every system sending as <code>&lt;PRIMARY_DOMAIN&gt;</code> identified — <a href="#doc-profile">config/district-profile.md</a></span></li><li class="task"><span class="box"></span><span>Copier / MFP scan-to-email method documented (SMTP relay? user auth? which account?)</span></li><li class="task"><span class="box"></span><span>SMTP relay users enumerated</span></li><li class="task"><span class="box"></span><span>POP/IMAP users enumerated — audit/gam/</span></li><li class="task"><span class="box"></span><span>Existing external forwarding rules enumerated — audit/gam/02-forwarding-and-filters.sh</span></li><li class="task"><span class="box"></span><span>Existing allowlists and approved-sender lists documented <strong>and justified</strong>, or removed (§8)</span></li><li class="task"><span class="box"></span><span>Existing content compliance rules reviewed for conflicts</span></li><li class="task"><span class="box"></span><span>Quarantine reviewers named, backups named, break coverage assigned (§9)</span></li><li class="task"><span class="box"></span><span>Third-party gateway present? If yes, <a href="#doc-assume">ASSUMPTIONS.md</a> §A4 applies and inbound gateway config must be verified first</span></li></ul>
+<ul><li class="task"><span class="box"></span><span>Every system sending as <code>&lt;PRIMARY_DOMAIN&gt;</code> identified — <a href="#doc-profile">config/district-profile.md</a></span></li><li class="task"><span class="box"></span><span>Copier / MFP scan-to-email method documented (SMTP relay? user auth? which account?)</span></li><li class="task"><span class="box"></span><span>SMTP relay users enumerated</span></li><li class="task"><span class="box"></span><span>POP/IMAP users enumerated — audit/gam/</span></li><li class="task"><span class="box"></span><span>Existing external forwarding rules enumerated — <a href="#doc-sh-02-forwarding-and-filters">audit/gam/02-forwarding-and-filters.sh</a></span></li><li class="task"><span class="box"></span><span>Existing allowlists and approved-sender lists documented <strong>and justified</strong>, or removed (§8)</span></li><li class="task"><span class="box"></span><span>Existing content compliance rules reviewed for conflicts</span></li><li class="task"><span class="box"></span><span>Quarantine reviewers named, backups named, break coverage assigned (§9)</span></li><li class="task"><span class="box"></span><span>Third-party gateway present? If yes, <a href="#doc-assume">ASSUMPTIONS.md</a> §A4 applies and inbound gateway config must be verified first</span></li></ul>
 <hr>
 <h2 id="gmail-rollback-summary">Rollback summary</h2>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Section</th><th style="text-align:left">Rollback</th><th style="text-align:left">Speed</th><th style="text-align:left">Residue</th></tr></thead><tbody><tr><td style="text-align:left">§2 Attachments</td><td style="text-align:left">Reset action to warning</td><td style="text-align:left">Immediate</td><td style="text-align:left">Quarantined mail stays quarantined</td></tr><tr><td style="text-align:left">§3 Spoofing/auth</td><td style="text-align:left">Reset action to warning</td><td style="text-align:left">Immediate</td><td style="text-align:left">Same</td></tr><tr><td style="text-align:left">§4 Links/images</td><td style="text-align:left">Toggle off</td><td style="text-align:left">Immediate</td><td style="text-align:left">None</td></tr><tr><td style="text-align:left">§5 POP/IMAP</td><td style="text-align:left">Toggle on per OU</td><td style="text-align:left">Immediate</td><td style="text-align:left">None — clients reconnect</td></tr><tr><td style="text-align:left">§5 Forwarding</td><td style="text-align:left">Toggle on per OU</td><td style="text-align:left">Immediate</td><td style="text-align:left">Existing rules unaffected either way</td></tr><tr><td style="text-align:left">§6 Sandbox</td><td style="text-align:left">Uncheck</td><td style="text-align:left">Immediate</td><td style="text-align:left"><strong>Trap: clearing the blanket box without rules disables sandboxing</strong></td></tr><tr><td style="text-align:left">§7 Compliance rules</td><td style="text-align:left">Disable rule</td><td style="text-align:left">Immediate for new mail</td><td style="text-align:left">Delivered banners are permanent</td></tr><tr><td style="text-align:left">§9 Quarantines</td><td style="text-align:left">Lower actions first, then delete</td><td style="text-align:left">Minutes</td><td style="text-align:left">Release held mail <em>before</em> deleting a quarantine</td></tr></tbody></table></div></section>
@@ -504,7 +504,7 @@ Do not reply. Report it: &lt;ABUSE_ALIAS&gt;</code></pre></div>
 <hr>
 <h2 id="groups-3-audit-existing-groups--do-this-before-anything-else">3. Audit existing groups — do this before anything else</h2>
 <p><strong>Changing the org-wide default does not change existing groups.</strong> Every group created under the old policy keeps its old permissions. This audit is the actual work of this document; §2 just stops the bleeding.</p>
-<p class="defrun"><strong>Path:</strong> <code>Admin console &gt; Directory &gt; Groups</code> → select group → <strong>Access settings</strong><br><strong>Script:</strong> audit/gam/06-group-settings.sh</p>
+<p class="defrun"><strong>Path:</strong> <code>Admin console &gt; Directory &gt; Groups</code> → select group → <strong>Access settings</strong><br><strong>Script:</strong> <a href="#doc-sh-06-group-settings">audit/gam/06-group-settings.sh</a></p>
 <h3 id="groups-triage-in-this-order">Triage in this order</h3>
 <p><strong>Tier 1 — District-wide distribution lists.</strong> <code>all-staff@</code>, <code>all-teachers@</code>, <code>all-employees@</code>, <code>everyone@</code>. Highest blast radius in the domain.</p>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Setting</th><th style="text-align:left">Required value</th></tr></thead><tbody><tr><td style="text-align:left">Who can post</td><td style="text-align:left"><strong>Only managers/owners</strong> (or a named authorized-senders group)</td></tr><tr><td style="text-align:left">Who can join</td><td style="text-align:left">Only invited / admin-added</td></tr><tr><td style="text-align:left">Allow external members</td><td style="text-align:left"><strong>Off</strong></td></tr><tr><td style="text-align:left">Allow posting from outside the organization</td><td style="text-align:left"><strong>Off</strong></td></tr><tr><td style="text-align:left">Message moderation</td><td style="text-align:left"><strong>Moderate all messages</strong> from non-owners</td></tr><tr><td style="text-align:left">Who can view members</td><td style="text-align:left">Group members / managers</td></tr></tbody></table></div>
@@ -535,11 +535,11 @@ Do not reply. Report it: &lt;ABUSE_ALIAS&gt;</code></pre></div>
 <hr>
 <h2 id="groups-7-ongoing-cadence">7. Ongoing cadence</h2>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Task</th><th style="text-align:left">Frequency</th></tr></thead><tbody><tr><td style="text-align:left">Tier 1 + Tier 2 group settings verified</td><td style="text-align:left"><strong>Monthly</strong></td></tr><tr><td style="text-align:left"><code>all-staff-senders@</code> membership reviewed</td><td style="text-align:left">Each semester</td></tr><tr><td style="text-align:left">Full group audit — external members, external posting, orphans</td><td style="text-align:left"><strong>Quarterly</strong></td></tr><tr><td style="text-align:left">Orphaned groups (departed owner) reassigned or deleted</td><td style="text-align:left">Quarterly</td></tr><tr><td style="text-align:left">Nested group membership reviewed</td><td style="text-align:left">Quarterly</td></tr><tr><td style="text-align:left">New groups reviewed against the tier model</td><td style="text-align:left">At creation</td></tr></tbody></table></div>
-<p>Script: audit/gam/06-group-settings.sh — run it as part of the quarterly audit and diff against the last run. The diff is more useful than the report; it shows what someone changed.</p>
+<p>Script: <a href="#doc-sh-06-group-settings">audit/gam/06-group-settings.sh</a> — run it as part of the quarterly audit and diff against the last run. The diff is more useful than the report; it shows what someone changed.</p>
 <hr>
 <h2 id="groups-rollback-summary">Rollback summary</h2>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Section</th><th style="text-align:left">Rollback</th><th style="text-align:left">Speed</th><th style="text-align:left">Residue</th></tr></thead><tbody><tr><td style="text-align:left">§2 Org-wide policy</td><td style="text-align:left">Reset toggles</td><td style="text-align:left">Immediate</td><td style="text-align:left"><strong>Existing groups keep their own settings either way</strong></td></tr><tr><td style="text-align:left">§3 Per-group settings</td><td style="text-align:left">Restore from audit output</td><td style="text-align:left">Minutes</td><td style="text-align:left">Keep pre-change GAM output — it <em>is</em> your restore point</td></tr><tr><td style="text-align:left">§4 Authorized senders</td><td style="text-align:left">Widen posting permission</td><td style="text-align:left">Immediate</td><td style="text-align:left">Moderated messages stay in the queue</td></tr><tr><td style="text-align:left">§5 Directory visibility</td><td style="text-align:left">Re-enable</td><td style="text-align:left">Immediate</td><td style="text-align:left">None</td></tr></tbody></table></div>
-<blockquote class=""><p>Before the quarterly bulk fix, run audit/gam/06-group-settings.sh and <strong>keep the output</strong>. It is the only rollback you have for a bulk permission change.</p></blockquote></section>
+<blockquote class=""><p>Before the quarterly bulk fix, run <a href="#doc-sh-06-group-settings">audit/gam/06-group-settings.sh</a> and <strong>keep the output</strong>. It is the only rollback you have for a bulk permission change.</p></blockquote></section>
 <section class="doc" id="doc-services"><div class="doc-meta">docs/05-other-services.md</div><h1 id="services-05--chat-meet-classroom-gemini-takeout--service-hygiene">05 — Chat, Meet, Classroom, Gemini, Takeout &amp; Service Hygiene</h1>
 <p>Research date <strong>2026-08-20</strong>.</p>
 <p>Two goals: close the non-Gmail communication channels students can be reached through, and <strong>shrink the number of Google services an attacker can abuse to send an authenticated lure</strong> (T7).</p>
@@ -591,7 +591,7 @@ Do not reply. Report it: &lt;ABUSE_ALIAS&gt;</code></pre></div>
 <p><strong>Path:</strong> <code>Admin console &gt; Apps &gt; Additional Google services</code> (and <code>&gt; Google Workspace</code> for core services), per OU</p>
 <p><strong>This is the T7 mitigation.</strong> Every enabled Google service is a service an attacker can use to generate an authentically-signed, perfectly-authenticated notification email to your users. You cannot stop Google notifications from being trustworthy — you can reduce how many kinds of them exist in your tenant.</p>
 <h3 id="services-sweep-procedure">Sweep procedure</h3>
-<ol><li>Enumerate every service, per OU: audit/gam/08-ou-service-state.sh</li><li>For each <strong>On</strong> service, answer: <em>does an identified group of users use this for instruction or operations?</em> Not &quot;might someone&quot; — is there a known use.</li><li>If no → turn <strong>Off</strong> for all OUs.</li><li>If yes for some → turn Off for OUs that don&#x27;t need it, starting with students.</li><li>Re-run quarterly. New Google services <strong>arrive enabled by default</strong> in many cases, so this sweep is a recurring task, not a one-time project.</li></ol>
+<ol><li>Enumerate every service, per OU: <a href="#doc-sh-08-ou-service-state">audit/gam/08-ou-service-state.sh</a></li><li>For each <strong>On</strong> service, answer: <em>does an identified group of users use this for instruction or operations?</em> Not &quot;might someone&quot; — is there a known use.</li><li>If no → turn <strong>Off</strong> for all OUs.</li><li>If yes for some → turn Off for OUs that don&#x27;t need it, starting with students.</li><li>Re-run quarterly. New Google services <strong>arrive enabled by default</strong> in many cases, so this sweep is a recurring task, not a one-time project.</li></ol>
 <h3 id="services-common-candidates">Common candidates</h3>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Service</th><th style="text-align:left">Typical district reality</th><th style="text-align:left">Recommendation</th></tr></thead><tbody><tr><td style="text-align:left"><strong>AppSheet</strong></td><td style="text-align:left">Almost never used</td><td style="text-align:left"><strong>Off</strong> for all OUs unless a named owner exists. App-building + data access is meaningful surface</td></tr><tr><td style="text-align:left">Google Ads / Merchant Center</td><td style="text-align:left">Never</td><td style="text-align:left">Off</td></tr><tr><td style="text-align:left">Blogger</td><td style="text-align:left">Legacy, rarely current</td><td style="text-align:left">Off unless actively used</td></tr><tr><td style="text-align:left">Google Groups (consumer, not Workspace Groups)</td><td style="text-align:left">Rarely</td><td style="text-align:left">Off — distinct from Groups for Business</td></tr><tr><td style="text-align:left">Google+ / legacy social</td><td style="text-align:left">Gone or vestigial</td><td style="text-align:left">Off</td></tr><tr><td style="text-align:left">Third-party / unlisted &quot;Additional services&quot;</td><td style="text-align:left">Long tail nobody reviewed</td><td style="text-align:left">Off by default; enable on request</td></tr><tr><td style="text-align:left">Google Photos</td><td style="text-align:left">Sometimes instructional</td><td style="text-align:left">Off for students unless there&#x27;s a use</td></tr><tr><td style="text-align:left">YouTube</td><td style="text-align:left">Instructional, needs restricted-mode config</td><td style="text-align:left">Configure, don&#x27;t disable</td></tr><tr><td style="text-align:left">Google Sites</td><td style="text-align:left">Sometimes instructional</td><td style="text-align:left">Keep if used; note it&#x27;s a documented ClickFix lure host</td></tr></tbody></table></div>
 <blockquote class=""><p><strong>On AppSheet specifically:</strong> I did not find current reporting documenting AppSheet abuse in phishing chains, despite it being named in the source brief. Turning it off is justified as <strong>attack-surface reduction for an unused service</strong> — a defensible, honest rationale. Don&#x27;t claim a campaign that isn&#x27;t documented; the surface-reduction argument stands on its own.</p></blockquote>
@@ -649,7 +649,7 @@ Do not reply. Report it: &lt;ABUSE_ALIAS&gt;</code></pre></div>
 <h3 id="identity-delegated-admin-roles--use-them">Delegated admin roles — use them</h3>
 <p>Most people with super admin do not need it. Google&#x27;s predefined and custom roles cover the realistic cases (<a href="https://knowledge.workspace.google.com/admin/users/administrator-privilege-definitions" class="ext" target="_blank" rel="noopener noreferrer">source</a>):</p>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Function</th><th style="text-align:left">Role instead of super admin</th></tr></thead><tbody><tr><td style="text-align:left">Password resets, user creation</td><td style="text-align:left">User Management Admin</td></tr><tr><td style="text-align:left">Gmail settings</td><td style="text-align:left">Custom role: Gmail settings only</td></tr><tr><td style="text-align:left">Chromebook/device management</td><td style="text-align:left">Services Admin (device scope)</td></tr><tr><td style="text-align:left">Help desk tier 1</td><td style="text-align:left">Custom: reset password, view users, <strong>no</strong> OU or security changes</td></tr><tr><td style="text-align:left">Reporting/audit access</td><td style="text-align:left">Custom: reports + audit read-only</td></tr></tbody></table></div>
-<p><strong>Audit:</strong> audit/gam/07-admin-roles.sh. Run it now. The common finding is 8–15 super admins in a district that needs 3, usually accumulated from past migrations and vendor engagements. <strong>Vendor super admin accounts from a completed project are the single most common orphan</strong> — check for those specifically.</p>
+<p><strong>Audit:</strong> <a href="#doc-sh-07-admin-roles">audit/gam/07-admin-roles.sh</a>. Run it now. The common finding is 8–15 super admins in a district that needs 3, usually accumulated from past migrations and vendor engagements. <strong>Vendor super admin accounts from a completed project are the single most common orphan</strong> — check for those specifically.</p>
 <h3 id="identity-super-admin-password-recovery">Super admin password recovery</h3>
 <p>Google provides a specific mechanism for super admin self-recovery (<a href="https://support.google.com/a/answer/9436964" class="ext" target="_blank" rel="noopener noreferrer">source</a>). <strong>Recommendation: leave it off</strong> and rely on the break-glass account plus a second super admin. Self-recovery for the highest-privilege account in the domain is an attack surface that the break-glass procedure already covers more safely.</p>
 <hr>
@@ -712,7 +712,7 @@ Do not reply. Report it: &lt;ABUSE_ALIAS&gt;</code></pre></div>
 <p>Blocking unconfigured apps from restricted scopes means: <strong>a user clicking Allow on an unknown app gets nothing.</strong> The consent screen may appear; the grant fails. That single setting neutralizes the consent-phishing class.</p>
 <h3 id="oauth-blast-radius--this-one-is-big-plan-for-it">⚠ Blast radius — this one is big, plan for it</h3>
 <p>Turning this on <strong>will break currently-working integrations</strong>. Before enabling:</p>
-<ol><li><strong>Inventory every app with an existing grant:</strong> audit/gam/04-oauth-tokens.sh, or <code>API controls &gt; App access control &gt; Manage Google Services / third-party apps</code>.</li><li>Sort by <strong>number of users</strong> and by <strong>scopes requested</strong>. An app with 400 teachers and Drive scope is a Tier 1 review; an app with 1 user and profile scope is not.</li><li>For each, decide: <strong>Trusted</strong> (district-approved, contract in place, DPA signed), <strong>Limited</strong>, or <strong>Blocked</strong>.</li><li><strong>Trust the approved list before flipping the default to Blocked.</strong> In that order. Doing it the other way round takes down instruction on a school day.</li><li>Announce with the request workflow (§5) already live.</li></ol>
+<ol><li><strong>Inventory every app with an existing grant:</strong> <a href="#doc-sh-04-oauth-tokens">audit/gam/04-oauth-tokens.sh</a>, or <code>API controls &gt; App access control &gt; Manage Google Services / third-party apps</code>.</li><li>Sort by <strong>number of users</strong> and by <strong>scopes requested</strong>. An app with 400 teachers and Drive scope is a Tier 1 review; an app with 1 user and profile scope is not.</li><li>For each, decide: <strong>Trusted</strong> (district-approved, contract in place, DPA signed), <strong>Limited</strong>, or <strong>Blocked</strong>.</li><li><strong>Trust the approved list before flipping the default to Blocked.</strong> In that order. Doing it the other way round takes down instruction on a school day.</li><li>Announce with the request workflow (§5) already live.</li></ol>
 <p><strong>Expect to find:</strong> grade-book integrations, Chrome extensions with Drive access, e-signature tools, PDF converters, &quot;free&quot; classroom utilities that teachers found themselves, and at least one app nobody can identify. That last category is the point of the exercise.</p>
 <p><strong>Impact + comms:</strong> High if sequenced wrong, low if sequenced right. Two-week notice with the app request form live. Template in comms/.</p>
 <p><strong>Rollback:</strong> Set unconfigured apps back to allowed — immediate. <strong>Grants made while blocked are not retroactively created</strong>, so nothing is restored automatically; users re-consent.</p>
@@ -751,11 +751,11 @@ Do not reply. Report it: &lt;ABUSE_ALIAS&gt;</code></pre></div>
 <p><strong>Remove anything you cannot positively identify and justify.</strong> The recovery path — a broken integration and a support ticket — is bounded and obvious. The alternative is an unmonitored key with domain-wide mailbox access held by someone unknown.</p>
 <p><strong>Best practice per Google:</strong> grant the <strong>narrowest possible scopes</strong> (<a href="https://knowledge.workspace.google.com/admin/apps/domain-wide-delegation-best-practices" class="ext" target="_blank" rel="noopener noreferrer">source</a>).</p>
 <p><strong>⚠ Before removing:</strong> notify the integration owner, and schedule for a <strong>low-impact window</strong> — not during grade reporting, state testing, or the first week of school. A removed DWD grant breaks the integration immediately and completely.</p>
-<p><strong>Script:</strong> audit/gam/04-oauth-tokens.sh covers user tokens. <strong>DWD must be reviewed in the console</strong> — GAM&#x27;s visibility here is limited and the console is authoritative.</p>
+<p><strong>Script:</strong> <a href="#doc-sh-04-oauth-tokens">audit/gam/04-oauth-tokens.sh</a> covers user tokens. <strong>DWD must be reviewed in the console</strong> — GAM&#x27;s visibility here is limited and the console is authoritative.</p>
 <hr>
 <h2 id="oauth-7-quarterly-token-review">7. Quarterly token review</h2>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Task</th><th style="text-align:left">Frequency</th><th style="text-align:left">Where</th></tr></thead><tbody><tr><td style="text-align:left">Review granted OAuth tokens by app, sorted by user count</td><td style="text-align:left"><strong>Quarterly</strong></td><td style="text-align:left">API controls &gt; App access control</td></tr><tr><td style="text-align:left">Review new apps appearing since last review</td><td style="text-align:left">Quarterly</td><td style="text-align:left">same</td></tr><tr><td style="text-align:left">Review Marketplace allowlist for departed/unrenewed vendors</td><td style="text-align:left">Quarterly</td><td style="text-align:left">Marketplace apps &gt; Apps list</td></tr><tr><td style="text-align:left"><strong>Domain-wide delegation full audit</strong></td><td style="text-align:left"><strong>Quarterly</strong></td><td style="text-align:left">API controls &gt; Manage Domain Wide Delegation</td></tr><tr><td style="text-align:left">Apps pending review queue</td><td style="text-align:left"><strong>Weekly</strong></td><td style="text-align:left">App access control &gt; Apps pending review</td></tr><tr><td style="text-align:left">Revoke tokens for departed staff</td><td style="text-align:left">At offboarding</td><td style="text-align:left">audit/gam/remediation/</td></tr></tbody></table></div>
-<p><strong>Offboarding is the leak.</strong> Suspending an account does not revoke its OAuth grants in every case. Explicit token revocation belongs in the offboarding checklist — audit/gam/remediation/revoke-tokens.sh.</p>
+<p><strong>Offboarding is the leak.</strong> Suspending an account does not revoke its OAuth grants in every case. Explicit token revocation belongs in the offboarding checklist — <a href="#doc-shr-revoke-tokens">audit/gam/remediation/revoke-tokens.sh</a>.</p>
 <p><strong>Weekly, not quarterly, for pending review.</strong> A teacher waiting three months for an app decision has already worked around you.</p>
 <hr>
 <h2 id="oauth-8-incident-interaction">8. Incident interaction</h2>
@@ -976,7 +976,7 @@ archive_folder = Archive
 hosts = https://opensearch:9200
 ssl = True</code></pre></div>
 <p><strong>Operational notes:</strong></p>
-<ul><li>The <code>dmarc@</code> mailbox receives high volume — <strong>exclude it from the §5 content compliance rules</strong> in <a href="#doc-gmail">docs/01</a>, or reports get banner-injected and parsing gets noisy.</li><li><strong>Do not expose Dashboards to the internet.</strong> Bound to loopback above; front it with Traefik behind Tailscale.</li><li>Retain 13 months to cover a full school year plus year-over-year comparison.</li><li>If DKIM app passwords are used for IMAP, note that app-specific passwords are themselves audited in audit/gam/05-app-passwords.sh — document this one as a known, owned exception so it doesn&#x27;t get revoked by a future audit sweep.</li></ul>
+<ul><li>The <code>dmarc@</code> mailbox receives high volume — <strong>exclude it from the §5 content compliance rules</strong> in <a href="#doc-gmail">docs/01</a>, or reports get banner-injected and parsing gets noisy.</li><li><strong>Do not expose Dashboards to the internet.</strong> Bound to loopback above; front it with Traefik behind Tailscale.</li><li>Retain 13 months to cover a full school year plus year-over-year comparison.</li><li>If DKIM app passwords are used for IMAP, note that app-specific passwords are themselves audited in <a href="#doc-sh-05-app-passwords">audit/gam/05-app-passwords.sh</a> — document this one as a known, owned exception so it doesn&#x27;t get revoked by a future audit sweep.</li></ul>
 <h3 id="dmarc-hosted-alternatives">Hosted alternatives</h3>
 <p>Viable if there&#x27;s no Docker host: Dmarcian, Valimail, EasyDMARC, Postmark&#x27;s free DMARC digest, Cloudflare DMARC Management. <strong>Send only <code>rua</code> to a hosted analyzer, never <code>ruf</code></strong> (§5) — forensic reports can carry message content.</p>
 <hr>
@@ -1554,7 +1554,7 @@ dig TXT &lt;lookalike-domain&gt; +short</code></pre></div>
 gam info domain</code></pre></div>
 <hr>
 <h2 id="gam-scripts--all-read-only">Scripts — all read-only</h2>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">Script</th><th style="text-align:left">Finds</th><th style="text-align:left">Admin console equivalent</th></tr></thead><tbody><tr><td style="text-align:left">01-users-without-2sv.sh</td><td style="text-align:left">Accounts not enrolled/enforced in 2SV</td><td style="text-align:left">Directory &gt; Users, add 2SV column</td></tr><tr><td style="text-align:left">02-forwarding-and-filters.sh</td><td style="text-align:left">External forwarding, forwarding addresses, suspicious filters</td><td style="text-align:left">Not fully available in console — this is the gap GAM fills</td></tr><tr><td style="text-align:left">03-delegates.sh</td><td style="text-align:left">Mailbox delegates and send-as aliases</td><td style="text-align:left">Not available in console at scale</td></tr><tr><td style="text-align:left">04-oauth-tokens.sh</td><td style="text-align:left">OAuth grants per user and per app</td><td style="text-align:left">Security &gt; API controls &gt; App access control</td></tr><tr><td style="text-align:left">05-app-passwords.sh</td><td style="text-align:left">App-specific passwords</td><td style="text-align:left">Per user only, in console</td></tr><tr><td style="text-align:left">06-group-settings.sh</td><td style="text-align:left">Group posting/join/external-member settings</td><td style="text-align:left">Directory &gt; Groups, one at a time</td></tr><tr><td style="text-align:left">07-admin-roles.sh</td><td style="text-align:left">Admin role assignments</td><td style="text-align:left">Account &gt; Admin roles</td></tr><tr><td style="text-align:left">08-ou-service-state.sh</td><td style="text-align:left">Service on/off state per OU</td><td style="text-align:left">Apps &gt; (each service), one at a time</td></tr><tr><td style="text-align:left">run-all.sh</td><td style="text-align:left">Runs all of the above</td><td style="text-align:left">—</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Script</th><th style="text-align:left">Finds</th><th style="text-align:left">Admin console equivalent</th></tr></thead><tbody><tr><td style="text-align:left"><a href="#doc-sh-01-users-without-2sv">01-users-without-2sv.sh</a></td><td style="text-align:left">Accounts not enrolled/enforced in 2SV</td><td style="text-align:left">Directory &gt; Users, add 2SV column</td></tr><tr><td style="text-align:left"><a href="#doc-sh-02-forwarding-and-filters">02-forwarding-and-filters.sh</a></td><td style="text-align:left">External forwarding, forwarding addresses, suspicious filters</td><td style="text-align:left">Not fully available in console — this is the gap GAM fills</td></tr><tr><td style="text-align:left"><a href="#doc-sh-03-delegates">03-delegates.sh</a></td><td style="text-align:left">Mailbox delegates and send-as aliases</td><td style="text-align:left">Not available in console at scale</td></tr><tr><td style="text-align:left"><a href="#doc-sh-04-oauth-tokens">04-oauth-tokens.sh</a></td><td style="text-align:left">OAuth grants per user and per app</td><td style="text-align:left">Security &gt; API controls &gt; App access control</td></tr><tr><td style="text-align:left"><a href="#doc-sh-05-app-passwords">05-app-passwords.sh</a></td><td style="text-align:left">App-specific passwords</td><td style="text-align:left">Per user only, in console</td></tr><tr><td style="text-align:left"><a href="#doc-sh-06-group-settings">06-group-settings.sh</a></td><td style="text-align:left">Group posting/join/external-member settings</td><td style="text-align:left">Directory &gt; Groups, one at a time</td></tr><tr><td style="text-align:left"><a href="#doc-sh-07-admin-roles">07-admin-roles.sh</a></td><td style="text-align:left">Admin role assignments</td><td style="text-align:left">Account &gt; Admin roles</td></tr><tr><td style="text-align:left"><a href="#doc-sh-08-ou-service-state">08-ou-service-state.sh</a></td><td style="text-align:left">Service on/off state per OU</td><td style="text-align:left">Apps &gt; (each service), one at a time</td></tr><tr><td style="text-align:left"><a href="#doc-sh-run-all">run-all.sh</a></td><td style="text-align:left">Runs all of the above</td><td style="text-align:left">—</td></tr></tbody></table></div>
 <p><strong>Scripts 02, 03, and 06 are the ones that justify GAM.</strong> Those checks are impractical at district scale through the console, and they are where compromises hide.</p>
 <hr>
 <h2 id="gam-cadence">Cadence</h2>
@@ -1594,7 +1594,7 @@ gam info domain</code></pre></div>
 <ol><li><strong>Run the corresponding read-only audit first.</strong> Know what you are changing before you change it.</li><li><strong>Every script defaults to dry-run.</strong> You must pass <code>--commit</code> to make changes. This is deliberate, and do not remove it.</li><li><strong>Keep the audit output.</strong> It is your only rollback for a bulk change. There is no undo button in GAM.</li><li><strong>Test against one account first.</strong> Every script accepts a single-account argument.</li><li><strong>Not during</strong>: the first two weeks of school, state testing, grade reporting, or a payroll week.</li><li><strong>Log what you ran, when, and why.</strong> Scripts append to <code>out/remediation-log.txt</code>.</li></ol>
 <hr>
 <h2 id="gam-rem-scripts">Scripts</h2>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">Script</th><th style="text-align:left">Does</th><th style="text-align:left">Reversible?</th></tr></thead><tbody><tr><td style="text-align:left">revoke-tokens.sh</td><td style="text-align:left">Revokes OAuth tokens and app passwords for an account</td><td style="text-align:left"><strong>No</strong> — users must re-consent</td></tr><tr><td style="text-align:left">remove-forwarding.sh</td><td style="text-align:left">Removes forwarding, forwarding addresses, and matching filters</td><td style="text-align:left"><strong>No</strong> — record them first</td></tr><tr><td style="text-align:left">lockdown-group.sh</td><td style="text-align:left">Sets a group to internal-only, owner-post, moderated</td><td style="text-align:left">Yes, if you saved prior settings</td></tr><tr><td style="text-align:left">bulk-reset-passwords.sh</td><td style="text-align:left">Resets passwords for a list of accounts</td><td style="text-align:left"><strong>No</strong></td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Script</th><th style="text-align:left">Does</th><th style="text-align:left">Reversible?</th></tr></thead><tbody><tr><td style="text-align:left"><a href="#doc-shr-revoke-tokens">revoke-tokens.sh</a></td><td style="text-align:left">Revokes OAuth tokens and app passwords for an account</td><td style="text-align:left"><strong>No</strong> — users must re-consent</td></tr><tr><td style="text-align:left"><a href="#doc-shr-remove-forwarding">remove-forwarding.sh</a></td><td style="text-align:left">Removes forwarding, forwarding addresses, and matching filters</td><td style="text-align:left"><strong>No</strong> — record them first</td></tr><tr><td style="text-align:left"><a href="#doc-shr-lockdown-group">lockdown-group.sh</a></td><td style="text-align:left">Sets a group to internal-only, owner-post, moderated</td><td style="text-align:left">Yes, if you saved prior settings</td></tr><tr><td style="text-align:left"><a href="#doc-shr-bulk-reset-passwords">bulk-reset-passwords.sh</a></td><td style="text-align:left">Resets passwords for a list of accounts</td><td style="text-align:left"><strong>No</strong></td></tr></tbody></table></div>
 <hr>
 <h2 id="gam-rem-when-each-is-appropriate">When each is appropriate</h2>
 <p><strong>revoke-tokens.sh</strong> — during <a href="#doc-pb-01">playbooks/01</a> step 5, and at staff offboarding. Suspending an account does not reliably revoke its OAuth grants; this does.</p>
@@ -1792,3 +1792,648 @@ gam info domain</code></pre></div>
 <p>Assumed Google as the IdP (no Okta/Entra SSO, no ClassLink/Clever as the auth source). <strong>If SSO is in front of Google,</strong> 2SV enforcement and Context-Aware Access behave differently — Google&#x27;s 2SV policy does not apply to SSO-authenticated sessions, so the phishing-resistant requirement must be enforced at the IdP instead. Flagged in <code>docs/06-accounts-mfa-admins.md</code>.</p>
 <h2 id="assume-a11--today-is-2026-08-20">A11 — &quot;Today&quot; is 2026-08-20</h2>
 <p>All &quot;as of&quot; statements, the 12-month update window, and the Calendar control&#x27;s rollout status are anchored to this date.</p></section>
+<section class="doc" id="doc-sh-01-users-without-2sv"><div class="doc-meta">audit/gam/01-users-without-2sv.sh</div><h1 id="sh-01-users-without-2sv-01-users-without-2svsh">01-users-without-2sv.sh</h1>
+<p>01 - Accounts not enrolled in / not enforced for 2-Step Verification. Admin console equivalent: Directory &gt; Users &gt; Manage columns &gt; add &quot;2-Step Verification Enrollment&quot; and &quot;2-Step Verification Enforcement&quot; Doc: docs/06-accounts-mfa-admins.md READ-ONLY. Expected non-compliant: /Service Accounts, /Shared Devices, and students (not enforced by design). ANY staff account in the enrolled=False list is a finding.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# 01 - Accounts not enrolled in / not enforced for 2-Step Verification.
+#
+# Admin console equivalent:
+#   Directory &gt; Users &gt; Manage columns &gt; add &quot;2-Step Verification Enrollment&quot;
+#                                            and &quot;2-Step Verification Enforcement&quot;
+# Doc: docs/06-accounts-mfa-admins.md
+#
+# READ-ONLY.
+#
+# Expected non-compliant: /Service Accounts, /Shared Devices, and students
+# (not enforced by design). ANY staff account in the enrolled=False list is a finding.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_lib.sh&quot;
+need_gam
+banner &quot;2SV enrollment and enforcement&quot;
+
+ALL=&quot;$OUT_DIR/$STAMP-2sv-all-users.csv&quot;
+NOT_ENROLLED=&quot;$OUT_DIR/$STAMP-2sv-not-enrolled.csv&quot;
+NOT_ENFORCED=&quot;$OUT_DIR/$STAMP-2sv-not-enforced.csv&quot;
+
+gam print users \
+  fields primaryemail,name,suspended,orgunitpath,isenrolledin2sv,isenforcedin2sv \
+  &gt; &quot;$ALL&quot;
+
+gam print users query &quot;isEnrolledIn2Sv=False&quot; \
+  fields primaryemail,name,suspended,orgunitpath \
+  &gt; &quot;$NOT_ENROLLED&quot;
+
+gam print users query &quot;isEnforcedIn2Sv=False&quot; \
+  fields primaryemail,name,suspended,orgunitpath \
+  &gt; &quot;$NOT_ENFORCED&quot;
+
+report &quot;$ALL&quot;          &quot;all users (2SV state)&quot;
+report &quot;$NOT_ENROLLED&quot; &quot;NOT enrolled in 2SV&quot;
+report &quot;$NOT_ENFORCED&quot; &quot;NOT enforced for 2SV&quot;
+
+echo
+echo &quot;Triage: filter NOT-enrolled by orgunitpath. Staff OUs = findings.&quot;
+echo &quot;        Students, /Service Accounts, /Shared Devices = expected.&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-sh-02-forwarding-and-filters"><div class="doc-meta">audit/gam/02-forwarding-and-filters.sh</div><h1 id="sh-02-forwarding-and-filters-02-forwarding-and-filterssh">02-forwarding-and-filters.sh</h1>
+<p>02 - External forwarding, forwarding addresses, and mail filters. Admin console equivalent: NONE at scale. This is the single strongest reason to have GAM in a district. The console cannot answer &quot;who is forwarding externally&quot; across 1,200 mailboxes. Doc: docs/01-gmail.md section 5, playbooks/01-compromised-staff-account.md READ-ONLY. Forwarding is the #1 attacker persistence mechanism - it survives a password reset. Filters are the same thing wearing a different hat, and are missed more often. Run this MONTHLY at minimum.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# 02 - External forwarding, forwarding addresses, and mail filters.
+#
+# Admin console equivalent: NONE at scale. This is the single strongest reason
+# to have GAM in a district. The console cannot answer &quot;who is forwarding
+# externally&quot; across 1,200 mailboxes.
+#
+# Doc: docs/01-gmail.md section 5, playbooks/01-compromised-staff-account.md
+#
+# READ-ONLY.
+#
+# Forwarding is the #1 attacker persistence mechanism - it survives a password
+# reset. Filters are the same thing wearing a different hat, and are missed more
+# often. Run this MONTHLY at minimum.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_lib.sh&quot;
+need_gam
+banner &quot;Forwarding, forwarding addresses, and filters&quot;
+
+FWD=&quot;$OUT_DIR/$STAMP-forwarding.csv&quot;
+FWD_ADDR=&quot;$OUT_DIR/$STAMP-forwarding-addresses.csv&quot;
+FILTERS=&quot;$OUT_DIR/$STAMP-filters.csv&quot;
+
+# Active forwarding setting per user
+gam all users print forwards &gt; &quot;$FWD&quot; 2&gt;/dev/null \
+  || gam all users show forward &gt; &quot;$FWD&quot;
+
+# Registered forwarding destinations (may exist without forwarding being enabled -
+# an attacker pre-registers, verifies, then enables later)
+gam all users print forwardingaddresses &gt; &quot;$FWD_ADDR&quot;
+
+# Filters - includes forward-to and delete/archive suppression rules
+gam all users print filters &gt; &quot;$FILTERS&quot;
+
+report &quot;$FWD&quot;      &quot;forwarding settings&quot;
+report &quot;$FWD_ADDR&quot; &quot;forwarding addresses&quot;
+report &quot;$FILTERS&quot;  &quot;mail filters&quot;
+
+banner &quot;Quick triage&quot;
+echo &quot;External forwarding destinations (excluding &lt;PRIMARY_DOMAIN&gt;):&quot;
+grep -iv &#x27;&lt;PRIMARY_DOMAIN&gt;&#x27; &quot;$FWD_ADDR&quot; 2&gt;/dev/null | tail -n +2 | head -50 \
+  || echo &quot;  (edit this script to substitute your real domain)&quot;
+
+echo
+echo &quot;Filters containing suppression keywords - attacker pattern, not user preference:&quot;
+grep -Ei &#x27;payroll|invoice|direct.?deposit|password|security|bank&#x27; &quot;$FILTERS&quot; 2&gt;/dev/null \
+  | head -50 || echo &quot;  none matched&quot;
+
+echo
+echo &quot;A filter that forwards externally, or that deletes/archives mail matching&quot;
+echo &quot;&#x27;payroll&#x27; or &#x27;direct deposit&#x27;, is attacker suppression. Investigate each.&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-sh-03-delegates"><div class="doc-meta">audit/gam/03-delegates.sh</div><h1 id="sh-03-delegates-03-delegatessh">03-delegates.sh</h1>
+<p>03 - Mailbox delegates and send-as aliases. Admin console equivalent: NONE at scale (per-user only). Doc: playbooks/01-compromised-staff-account.md step 8 READ-ONLY. A delegate is persistent mailbox access that survives a password reset and is invisible to the mailbox owner unless they go looking. A send-as alias lets an attacker send as another identity from a mailbox they control.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# 03 - Mailbox delegates and send-as aliases.
+#
+# Admin console equivalent: NONE at scale (per-user only).
+# Doc: playbooks/01-compromised-staff-account.md step 8
+#
+# READ-ONLY.
+#
+# A delegate is persistent mailbox access that survives a password reset and is
+# invisible to the mailbox owner unless they go looking. A send-as alias lets an
+# attacker send as another identity from a mailbox they control.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_lib.sh&quot;
+need_gam
+banner &quot;Delegates and send-as aliases&quot;
+
+DELEGATES=&quot;$OUT_DIR/$STAMP-delegates.csv&quot;
+SENDAS=&quot;$OUT_DIR/$STAMP-sendas.csv&quot;
+
+gam all users print delegates &gt; &quot;$DELEGATES&quot;
+gam all users print sendas    &gt; &quot;$SENDAS&quot;
+
+report &quot;$DELEGATES&quot; &quot;mailbox delegates&quot;
+report &quot;$SENDAS&quot;    &quot;send-as aliases&quot;
+
+echo
+echo &quot;Findings to look for:&quot;
+echo &quot;  - delegates on Finance-HR mailboxes that are not a known assistant relationship&quot;
+echo &quot;  - delegates granted TO suspended or departed accounts&quot;
+echo &quot;  - send-as aliases on domains the district does not own&quot;
+echo &quot;  - any delegate relationship neither party can explain&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-sh-04-oauth-tokens"><div class="doc-meta">audit/gam/04-oauth-tokens.sh</div><h1 id="sh-04-oauth-tokens-04-oauth-tokenssh">04-oauth-tokens.sh</h1>
+<p>04 - OAuth tokens granted by users to third-party applications. Admin console equivalent: Security &gt; Access and data control &gt; API controls &gt; App access control (console is authoritative; this gives you a diffable per-user export) Doc: docs/07-oauth-app-control.md READ-ONLY. NOTE: domain-wide delegation is NOT covered here. GAM visibility is limited and the console is authoritative. Review DWD at: Security &gt; Access and data control &gt; API controls &gt; Manage Domain Wide Delegation DWD is the largest blast radius in the tenant - see docs/07 section 6.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# 04 - OAuth tokens granted by users to third-party applications.
+#
+# Admin console equivalent:
+#   Security &gt; Access and data control &gt; API controls &gt; App access control
+#   (console is authoritative; this gives you a diffable per-user export)
+# Doc: docs/07-oauth-app-control.md
+#
+# READ-ONLY.
+#
+# NOTE: domain-wide delegation is NOT covered here. GAM visibility is limited and
+# the console is authoritative. Review DWD at:
+#   Security &gt; Access and data control &gt; API controls &gt; Manage Domain Wide Delegation
+# DWD is the largest blast radius in the tenant - see docs/07 section 6.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_lib.sh&quot;
+need_gam
+banner &quot;OAuth tokens&quot;
+
+TOKENS=&quot;$OUT_DIR/$STAMP-oauth-tokens.csv&quot;
+BY_APP=&quot;$OUT_DIR/$STAMP-oauth-by-app.txt&quot;
+
+gam all users print tokens &gt; &quot;$TOKENS&quot;
+report &quot;$TOKENS&quot; &quot;OAuth token grants&quot;
+
+banner &quot;Grants per application (highest user count first)&quot;
+# Column layout varies between GAM builds; find the client/app column by header name.
+awk -F, &#x27;NR==1{
+           for(i=1;i&lt;=NF;i++){
+             h=tolower($i)
+             if(h ~ /displaytext|clientid|application/){c=i; break}
+           }
+           if(!c){c=3}
+           next
+         }
+         {print $c}&#x27; &quot;$TOKENS&quot; \
+  | sort | uniq -c | sort -rn | tee &quot;$BY_APP&quot; | head -40
+
+echo
+echo &quot;Full ranking -&gt; $BY_APP&quot;
+echo
+echo &quot;Triage: high user count on an unrecognized app is the priority. Then check&quot;
+echo &quot;scopes against necessity - a flashcard app with full Drive access is asking&quot;
+echo &quot;for far more than it needs. See docs/07 section 5.&quot;
+echo
+echo &quot;REMINDER: review domain-wide delegation in the console. It is not in this export.&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-sh-05-app-passwords"><div class="doc-meta">audit/gam/05-app-passwords.sh</div><h1 id="sh-05-app-passwords-05-app-passwordssh">05-app-passwords.sh</h1>
+<p>05 - Application-specific passwords (ASPs). Admin console equivalent: per-user only (Directory &gt; Users &gt; user &gt; Security). Doc: playbooks/01-compromised-staff-account.md step 6 READ-ONLY. ASPs bypass 2SV by design. Each one is a standing credential that survives a password reset. If POP/IMAP is off per docs/01 section 5, most of these should not exist - their presence usually means a legacy client nobody migrated.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# 05 - Application-specific passwords (ASPs).
+#
+# Admin console equivalent: per-user only (Directory &gt; Users &gt; user &gt; Security).
+# Doc: playbooks/01-compromised-staff-account.md step 6
+#
+# READ-ONLY.
+#
+# ASPs bypass 2SV by design. Each one is a standing credential that survives a
+# password reset. If POP/IMAP is off per docs/01 section 5, most of these should
+# not exist - their presence usually means a legacy client nobody migrated.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_lib.sh&quot;
+need_gam
+banner &quot;Application-specific passwords&quot;
+
+ASPS=&quot;$OUT_DIR/$STAMP-app-passwords.csv&quot;
+gam all users print asps &gt; &quot;$ASPS&quot;
+report &quot;$ASPS&quot; &quot;app-specific passwords&quot;
+
+echo
+echo &quot;Every ASP should have a known owner and a known purpose.&quot;
+echo &quot;Document legitimate exceptions (e.g. the parsedmarc IMAP account, docs/09&quot;
+echo &quot;section 7) so a future sweep does not revoke them blindly.&quot;
+echo &quot;Revoke the rest: audit/gam/remediation/revoke-tokens.sh&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-sh-06-group-settings"><div class="doc-meta">audit/gam/06-group-settings.sh</div><h1 id="sh-06-group-settings-06-group-settingssh">06-group-settings.sh</h1>
+<p>06 - Group posting, joining, and external-member settings. Admin console equivalent: Directory &gt; Groups &gt; (each group) &gt; Access settings - one group at a time, which is why this script exists. Doc: docs/04-groups.md READ-ONLY. This is the control that decides whether one spoofed email reaches three people or twelve hundred.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# 06 - Group posting, joining, and external-member settings.
+#
+# Admin console equivalent: Directory &gt; Groups &gt; (each group) &gt; Access settings
+#   - one group at a time, which is why this script exists.
+# Doc: docs/04-groups.md
+#
+# READ-ONLY.
+#
+# This is the control that decides whether one spoofed email reaches three people
+# or twelve hundred.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_lib.sh&quot;
+need_gam
+banner &quot;Group settings&quot;
+
+GROUPS=&quot;$OUT_DIR/$STAMP-groups.csv&quot;
+RISKY=&quot;$OUT_DIR/$STAMP-groups-risky.csv&quot;
+
+gam print groups \
+  settings \
+  allfields \
+  &gt; &quot;$GROUPS&quot;
+
+report &quot;$GROUPS&quot; &quot;all groups with settings&quot;
+
+banner &quot;Higher-risk groups&quot;
+head -1 &quot;$GROUPS&quot; &gt; &quot;$RISKY&quot;
+grep -Ei &#x27;ANYONE_CAN_POST|allowExternalMembers.?,?True|true.*allowExternalMembers|ALL_IN_DOMAIN_CAN_POST&#x27; \
+  &quot;$GROUPS&quot; &gt;&gt; &quot;$RISKY&quot; 2&gt;/dev/null || true
+report &quot;$RISKY&quot; &quot;groups allowing wide/external posting&quot;
+
+echo
+echo &quot;Triage by member count - see the tier model in docs/04 section 3.&quot;
+echo &quot;  Tier 1: all-staff@, all-teachers@, everyone@  -&gt; owners/managers only, moderated&quot;
+echo &quot;  Tier 2: per-school staff lists                -&gt; same&quot;
+echo &quot;  Tier 3: principals@, finance@                 -&gt; treat as Tier 1&quot;
+echo
+echo &quot;Also check NESTED groups: a hardened all-staff@ can still be fed by an open&quot;
+echo &quot;child group. Check membership OF groups, not just members IN them.&quot;
+echo
+echo &quot;KEEP THIS OUTPUT. It is your only rollback for a bulk permission change.&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-sh-07-admin-roles"><div class="doc-meta">audit/gam/07-admin-roles.sh</div><h1 id="sh-07-admin-roles-07-admin-rolessh">07-admin-roles.sh</h1>
+<p>07 - Administrator role assignments. Admin console equivalent: Account &gt; Admin roles Doc: docs/06-accounts-mfa-admins.md section 5 READ-ONLY. Target: 2-4 super admins. Expect to find more. Vendor accounts left over from completed projects are the most common orphan - check for those specifically.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# 07 - Administrator role assignments.
+#
+# Admin console equivalent: Account &gt; Admin roles
+# Doc: docs/06-accounts-mfa-admins.md section 5
+#
+# READ-ONLY.
+#
+# Target: 2-4 super admins. Expect to find more. Vendor accounts left over from
+# completed projects are the most common orphan - check for those specifically.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_lib.sh&quot;
+need_gam
+banner &quot;Admin role assignments&quot;
+
+ADMINS=&quot;$OUT_DIR/$STAMP-admins.csv&quot;
+ROLES=&quot;$OUT_DIR/$STAMP-admin-roles.csv&quot;
+
+gam print admins &gt; &quot;$ADMINS&quot;
+gam print adminroles &gt; &quot;$ROLES&quot; 2&gt;/dev/null || echo &quot;  (adminroles unsupported in this GAM build - skipped)&quot;
+
+report &quot;$ADMINS&quot; &quot;admin role assignments&quot;
+[[ -f &quot;$ROLES&quot; ]] &amp;&amp; report &quot;$ROLES&quot; &quot;role definitions&quot;
+
+banner &quot;Super admin count&quot;
+grep -ci &#x27;_SEED_ADMIN_ROLE\|super&#x27; &quot;$ADMINS&quot; 2&gt;/dev/null || echo &quot;  (grep found no super-admin marker - inspect the CSV directly)&quot;
+
+echo
+echo &quot;For each super admin, confirm: is this a dedicated admin account, or someone&#x27;s&quot;
+echo &quot;daily driver? A super admin account that reads email can be phished.&quot;
+echo &quot;See docs/06 section 5 for the delegated-role alternatives.&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-sh-08-ou-service-state"><div class="doc-meta">audit/gam/08-ou-service-state.sh</div><h1 id="sh-08-ou-service-state-08-ou-service-statesh">08-ou-service-state.sh</h1>
+<p>08 - Service on/off state per organizational unit. Admin console equivalent: Apps &gt; (each service) &gt; (each OU) - one at a time. Doc: docs/05-other-services.md section 7 READ-ONLY. Every service that is ON is a service an attacker can use to generate an authentically-signed notification email to your users (threat T7).</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# 08 - Service on/off state per organizational unit.
+#
+# Admin console equivalent: Apps &gt; (each service) &gt; (each OU) - one at a time.
+# Doc: docs/05-other-services.md section 7
+#
+# READ-ONLY.
+#
+# Every service that is ON is a service an attacker can use to generate an
+# authentically-signed notification email to your users (threat T7).
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_lib.sh&quot;
+need_gam
+banner &quot;OU structure and service state&quot;
+
+ORGS=&quot;$OUT_DIR/$STAMP-orgunits.csv&quot;
+SERVICES=&quot;$OUT_DIR/$STAMP-ou-service-state.txt&quot;
+
+gam print orgs &gt; &quot;$ORGS&quot;
+report &quot;$ORGS&quot; &quot;organizational units&quot;
+
+: &gt; &quot;$SERVICES&quot;
+{
+  echo &quot;# Service state per OU - generated $STAMP&quot;
+  echo &quot;# Verify against Admin console &gt; Apps; GAM coverage of service state varies by build.&quot;
+  echo
+  gam print orgs 2&gt;/dev/null | tail -n +2 | cut -d, -f1 | while read -r ou; do
+    [[ -z &quot;$ou&quot; ]] &amp;&amp; continue
+    echo &quot;## OU: $ou&quot;
+    gam info org &quot;$ou&quot; 2&gt;/dev/null || echo &quot;  (no detail available)&quot;
+    echo
+  done
+} &gt;&gt; &quot;$SERVICES&quot;
+
+echo &quot;  OU service detail -&gt; $SERVICES&quot;
+echo
+echo &quot;GAM&#x27;s per-OU service reporting is incomplete in some builds. Treat this as a&quot;
+echo &quot;starting point and confirm the sweep list against Admin console &gt; Apps &gt;&quot;
+echo &quot;Additional Google services, per OU.&quot;
+echo
+echo &quot;Candidates to turn OFF where unused - see docs/05 section 7:&quot;
+echo &quot;  AppSheet, Blogger, Google Ads, consumer Groups, Photos (students),&quot;
+echo &quot;  and the long tail under Additional Google services.&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-sh-_lib"><div class="doc-meta">audit/gam/_lib.sh</div><h1 id="sh-_lib-libsh">_lib.sh</h1>
+<p>Shared helpers for the read-only GAM audit scripts.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# Shared helpers for the read-only GAM audit scripts.
+set -euo pipefail
+
+OUT_DIR=&quot;${OUT_DIR:-$(cd &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)&quot; &amp;&amp; pwd)/out}&quot;
+STAMP=&quot;$(date +%Y-%m-%d)&quot;
+mkdir -p &quot;$OUT_DIR&quot;
+
+need_gam() {
+  command -v gam &gt;/dev/null 2&gt;&amp;1 || {
+    echo &quot;ERROR: gam not found on PATH.&quot; &gt;&amp;2
+    echo &quot;  Install GAM7 (https://github.com/GAM-team/GAM) or GAMADV-XTD3,&quot; &gt;&amp;2
+    echo &quot;  or work the Admin console path in this script&#x27;s header manually.&quot; &gt;&amp;2
+    exit 127
+  }
+}
+
+# report &lt;file&gt; &lt;label&gt; - print a row count so an empty result is distinguishable
+# from a silently failed command. Those look identical otherwise.
+report() {
+  local f=&quot;$1&quot; label=&quot;$2&quot; n=0
+  [[ -f &quot;$f&quot; ]] &amp;&amp; n=$(( $(wc -l &lt; &quot;$f&quot;) - 1 ))
+  (( n &lt; 0 )) &amp;&amp; n=0
+  printf &#x27;  %-38s %6s rows  -&gt; %s\n&#x27; &quot;$label&quot; &quot;$n&quot; &quot;$f&quot;
+  if (( n == 0 )); then
+    echo &quot;    NOTE: zero rows. Confirm this means &#x27;no findings&#x27; and not &#x27;command returned nothing&#x27;.&quot;
+  fi
+}
+
+banner() { echo; echo &quot;=== $* ===&quot;; }
+</code></pre></div></section>
+<section class="doc" id="doc-sh-run-all"><div class="doc-meta">audit/gam/run-all.sh</div><h1 id="sh-run-all-run-allsh">run-all.sh</h1>
+<p>Run every read-only audit script. Safe to run any time. Output -&gt; audit/gam/out/  (gitignored - contains PII, do not commit)</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# Run every read-only audit script. Safe to run any time.
+#
+# Output -&gt; audit/gam/out/  (gitignored - contains PII, do not commit)
+set -uo pipefail
+cd &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)&quot;
+
+echo &quot;==============================================&quot;
+echo &quot; GAM read-only audit suite&quot;
+echo &quot; $(date)&quot;
+echo &quot;==============================================&quot;
+
+FAILED=()
+for s in 0*.sh; do
+  [[ &quot;$s&quot; == &quot;run-all.sh&quot; ]] &amp;&amp; continue
+  echo
+  echo &quot;----------------------------------------------&quot;
+  echo &quot; RUNNING: $s&quot;
+  echo &quot;----------------------------------------------&quot;
+  if ! bash &quot;$s&quot;; then
+    echo &quot;  !! $s exited non-zero&quot;
+    FAILED+=(&quot;$s&quot;)
+  fi
+done
+
+echo
+echo &quot;==============================================&quot;
+if (( ${#FAILED[@]} )); then
+  echo &quot; COMPLETED WITH FAILURES: ${FAILED[*]}&quot;
+  echo &quot; GAM syntax varies between GAM7 and GAMADV-XTD3 and across versions.&quot;
+  echo &quot; Check the failing script&#x27;s commands against your GAM build.&quot;
+else
+  echo &quot; All scripts completed.&quot;
+fi
+echo &quot; Output: $(pwd)/out/&quot;
+echo
+echo &quot; Output contains PII. Do not commit. Do not email.&quot;
+echo &quot; Diff against last month&#x27;s run - the diff is the useful part.&quot;
+echo &quot;==============================================&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-shr-_rlib"><div class="doc-meta">audit/gam/remediation/_rlib.sh</div><h1 id="shr-_rlib-rlibsh">_rlib.sh</h1>
+<p>Shared helpers for remediation scripts. Dry-run by default - always.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# Shared helpers for remediation scripts. Dry-run by default - always.
+set -euo pipefail
+
+R_DIR=&quot;$(cd &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)&quot; &amp;&amp; pwd)&quot;
+OUT_DIR=&quot;${OUT_DIR:-$(cd &quot;$R_DIR/..&quot; &amp;&amp; pwd)/out}&quot;
+LOG=&quot;$OUT_DIR/remediation-log.txt&quot;
+mkdir -p &quot;$OUT_DIR&quot;
+
+COMMIT=0
+for a in &quot;$@&quot;; do [[ &quot;$a&quot; == &quot;--commit&quot; ]] &amp;&amp; COMMIT=1; done
+
+banner() { echo; echo &quot;=== $* ===&quot;; }
+
+need_gam() {
+  command -v gam &gt;/dev/null 2&gt;&amp;1 || {
+    echo &quot;ERROR: gam not found on PATH. Cannot remediate without it.&quot; &gt;&amp;2
+    exit 127
+  }
+}
+
+mode_notice() {
+  if (( COMMIT )); then
+    echo &quot;*** MODE: COMMIT - changes WILL be made ***&quot;
+  else
+    echo &quot;MODE: DRY-RUN. Nothing will change. Pass --commit to apply.&quot;
+  fi
+}
+
+# run &lt;description&gt; &lt;command...&gt;
+run() {
+  local desc=&quot;$1&quot;; shift
+  if (( COMMIT )); then
+    echo &quot;  APPLY: $desc&quot;
+    &quot;$@&quot; &amp;&amp; logit &quot;APPLIED: $desc&quot; || { logit &quot;FAILED: $desc&quot;; return 1; }
+  else
+    echo &quot;  would run: $desc&quot;
+    echo &quot;             \$ $*&quot;
+  fi
+}
+
+logit() {
+  printf &#x27;%s  %s  %s\n&#x27; &quot;$(date -u +%Y-%m-%dT%H:%M:%SZ)&quot; &quot;${USER:-unknown}&quot; &quot;$*&quot; &gt;&gt; &quot;$LOG&quot;
+}
+
+confirm() {
+  (( COMMIT )) || return 0
+  echo
+  read -r -p &quot;Type YES to proceed with real changes: &quot; ans
+  [[ &quot;$ans&quot; == &quot;YES&quot; ]] || { echo &quot;Aborted.&quot;; exit 1; }
+}
+</code></pre></div></section>
+<section class="doc" id="doc-shr-bulk-reset-passwords"><div class="doc-meta">audit/gam/remediation/bulk-reset-passwords.sh</div><h1 id="shr-bulk-reset-passwords-bulk-reset-passwordssh">bulk-reset-passwords.sh</h1>
+<p>⚠ MAKES CHANGES TO MANY ACCOUNTS. Resets passwords from a list. Usage: ./bulk-reset-passwords.sh accounts.txt            # dry-run ./bulk-reset-passwords.sh accounts.txt --commit   # apply accounts.txt: one email address per line. For mass student compromise - playbooks/02 section 5. COORDINATE WITH SCHOOLS BEFORE RUNNING. The front office absorbs the volume of students who cannot sign in, and they need warning, not a surprise. NOT reversible.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# ⚠ MAKES CHANGES TO MANY ACCOUNTS. Resets passwords from a list.
+#
+# Usage:
+#   ./bulk-reset-passwords.sh accounts.txt            # dry-run
+#   ./bulk-reset-passwords.sh accounts.txt --commit   # apply
+#
+# accounts.txt: one email address per line.
+#
+# For mass student compromise - playbooks/02 section 5.
+# COORDINATE WITH SCHOOLS BEFORE RUNNING. The front office absorbs the volume of
+# students who cannot sign in, and they need warning, not a surprise.
+#
+# NOT reversible.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_rlib.sh&quot;
+
+LIST=&quot;${1:-}&quot;
+[[ -z &quot;$LIST&quot; || &quot;$LIST&quot; == &quot;--commit&quot; ]] &amp;&amp; {
+  echo &quot;Usage: $0 &lt;accounts.txt&gt; [--commit]&quot; &gt;&amp;2; exit 2; }
+[[ -f &quot;$LIST&quot; ]] || { echo &quot;ERROR: $LIST not found&quot; &gt;&amp;2; exit 2; }
+
+COUNT=$(grep -cve &#x27;^\s*$&#x27; &quot;$LIST&quot;)
+
+banner &quot;Bulk password reset: $COUNT accounts from $LIST&quot;
+mode_notice
+need_gam
+echo
+echo &quot;Accounts (first 20):&quot;
+grep -ve &#x27;^\s*$&#x27; &quot;$LIST&quot; | head -20 | sed &#x27;s/^/  /&#x27;
+(( COUNT &gt; 20 )) &amp;&amp; echo &quot;  ... and $((COUNT - 20)) more&quot;
+
+echo
+echo &quot;Checklist before committing:&quot;
+echo &quot;  [ ] Schools notified - front offices ready for the sign-in volume&quot;
+echo &quot;  [ ] Password delivery method agreed (in person, through the school)&quot;
+echo &quot;  [ ] Not during state testing or the first week of school&quot;
+echo &quot;  [ ] The root cause is understood - otherwise this recurs&quot;
+
+confirm
+
+while read -r acct; do
+  [[ -z &quot;$acct&quot; ]] &amp;&amp; continue
+  run &quot;reset password for $acct&quot; \
+    gam update user &quot;$acct&quot; password random changepassword on
+done &lt; &quot;$LIST&quot;
+
+echo
+echo &quot;Reset complete. Deliver new passwords IN PERSON through the school.&quot;
+echo &quot;Never by email - if the mailbox is compromised you are handing the&quot;
+echo &quot;credential to the attacker.&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-shr-lockdown-group"><div class="doc-meta">audit/gam/remediation/lockdown-group.sh</div><h1 id="shr-lockdown-group-lockdown-groupsh">lockdown-group.sh</h1>
+<p>⚠ MAKES CHANGES. Locks a group to internal, owner-post, moderated. Usage: ./lockdown-group.sh all-staff@domain            # dry-run ./lockdown-group.sh all-staff@domain --commit   # apply Applies the docs/04 section 3 Tier 1 profile. Run 06-group-settings.sh FIRST - its output is your only restore point.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# ⚠ MAKES CHANGES. Locks a group to internal, owner-post, moderated.
+#
+# Usage:
+#   ./lockdown-group.sh all-staff@domain            # dry-run
+#   ./lockdown-group.sh all-staff@domain --commit   # apply
+#
+# Applies the docs/04 section 3 Tier 1 profile.
+# Run 06-group-settings.sh FIRST - its output is your only restore point.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_rlib.sh&quot;
+
+GROUP=&quot;${1:-}&quot;
+[[ -z &quot;$GROUP&quot; || &quot;$GROUP&quot; == &quot;--commit&quot; ]] &amp;&amp; {
+  echo &quot;Usage: $0 &lt;group@domain&gt; [--commit]&quot; &gt;&amp;2; exit 2; }
+
+banner &quot;Lock down group: $GROUP&quot;
+mode_notice
+need_gam
+
+SNAP=&quot;$OUT_DIR/$(date +%Y-%m-%d)-pre-lockdown-${GROUP//[^a-zA-Z0-9]/_}.txt&quot;
+gam info group &quot;$GROUP&quot; 2&gt;/dev/null | tee &quot;$SNAP&quot;
+echo
+echo &quot;Snapshot -&gt; $SNAP  (RESTORE POINT - do not lose this)&quot;
+
+confirm
+run &quot;set $GROUP to Tier 1 profile&quot; gam update group &quot;$GROUP&quot; \
+  whoCanPostMessage ALL_OWNERS_CAN_POST \
+  whoCanJoin INVITED_CAN_JOIN \
+  whoCanViewMembership ALL_MANAGERS_CAN_VIEW \
+  allowExternalMembers false \
+  messageModerationLevel MODERATE_NON_MEMBERS
+
+echo
+echo &quot;Verify: gam info group $GROUP&quot;
+echo
+echo &quot;Before announcing: confirm the authorized senders can still post.&quot;
+echo &quot;See docs/04 section 4 for the authorized-senders pattern and the emergency&quot;
+echo &quot;path for weather and safety notices - those cannot wait on moderation.&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-shr-remove-forwarding"><div class="doc-meta">audit/gam/remediation/remove-forwarding.sh</div><h1 id="shr-remove-forwarding-remove-forwardingsh">remove-forwarding.sh</h1>
+<p>⚠ MAKES CHANGES. Removes mail forwarding and forwarding addresses. Usage: ./remove-forwarding.sh user@domain            # dry-run ./remove-forwarding.sh user@domain --commit   # apply Run 02-forwarding-and-filters.sh FIRST and keep the output. Some forwarding is legitimate and users will ask what happened to it. NOTE: this removes the forwarding configuration. It does NOT delete filters - review those manually; a filter that forwards externally needs the same treatment but deleting filters in bulk is too blunt to automate safely.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# ⚠ MAKES CHANGES. Removes mail forwarding and forwarding addresses.
+#
+# Usage:
+#   ./remove-forwarding.sh user@domain            # dry-run
+#   ./remove-forwarding.sh user@domain --commit   # apply
+#
+# Run 02-forwarding-and-filters.sh FIRST and keep the output. Some forwarding is
+# legitimate and users will ask what happened to it.
+#
+# NOTE: this removes the forwarding configuration. It does NOT delete filters -
+# review those manually; a filter that forwards externally needs the same
+# treatment but deleting filters in bulk is too blunt to automate safely.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_rlib.sh&quot;
+
+ACCOUNT=&quot;${1:-}&quot;
+[[ -z &quot;$ACCOUNT&quot; || &quot;$ACCOUNT&quot; == &quot;--commit&quot; ]] &amp;&amp; {
+  echo &quot;Usage: $0 &lt;user@domain&gt; [--commit]&quot; &gt;&amp;2; exit 2; }
+
+banner &quot;Remove forwarding: $ACCOUNT&quot;
+mode_notice
+need_gam
+
+SNAP=&quot;$OUT_DIR/$(date +%Y-%m-%d)-pre-fwd-${ACCOUNT//[^a-zA-Z0-9]/_}.txt&quot;
+{
+  echo &quot;=== forward ===&quot;;              gam user &quot;$ACCOUNT&quot; show forward 2&gt;/dev/null || true
+  echo &quot;=== forwardingaddresses ===&quot;; gam user &quot;$ACCOUNT&quot; show forwardingaddresses 2&gt;/dev/null || true
+  echo &quot;=== filters ===&quot;;             gam user &quot;$ACCOUNT&quot; print filters 2&gt;/dev/null || true
+} | tee &quot;$SNAP&quot;
+echo
+echo &quot;Snapshot -&gt; $SNAP  (your rollback record)&quot;
+
+confirm
+run &quot;disable forwarding for $ACCOUNT&quot; gam user &quot;$ACCOUNT&quot; forward off
+
+echo
+echo &quot;Forwarding addresses are NOT auto-deleted - review the snapshot and remove&quot;
+echo &quot;individually so you do not destroy a legitimate registered address:&quot;
+echo &quot;  gam user $ACCOUNT delete forwardingaddress &lt;address&gt;&quot;
+echo
+echo &quot;Then review filters in the snapshot. A filter that forwards externally, or&quot;
+echo &quot;that deletes/archives mail matching &#x27;payroll&#x27; or &#x27;direct deposit&#x27;, is&quot;
+echo &quot;attacker suppression - remove it and treat the account as compromised.&quot;
+</code></pre></div></section>
+<section class="doc" id="doc-shr-revoke-tokens"><div class="doc-meta">audit/gam/remediation/revoke-tokens.sh</div><h1 id="shr-revoke-tokens-revoke-tokenssh">revoke-tokens.sh</h1>
+<p>⚠ MAKES CHANGES. Revokes OAuth tokens and app-specific passwords. Usage: ./revoke-tokens.sh user@domain            # dry-run ./revoke-tokens.sh user@domain --commit   # apply Use during playbooks/01 step 5, and at staff offboarding. NOT reversible - users must re-consent to legitimate apps.</p>
+<div class="code"><span class="code-lang">bash</span><pre><code class="lang-bash">#!/usr/bin/env bash
+# ⚠ MAKES CHANGES. Revokes OAuth tokens and app-specific passwords.
+#
+# Usage:
+#   ./revoke-tokens.sh user@domain            # dry-run
+#   ./revoke-tokens.sh user@domain --commit   # apply
+#
+# Use during playbooks/01 step 5, and at staff offboarding.
+# NOT reversible - users must re-consent to legitimate apps.
+
+source &quot;$(dirname &quot;${BASH_SOURCE[0]}&quot;)/_rlib.sh&quot;
+
+ACCOUNT=&quot;${1:-}&quot;
+[[ -z &quot;$ACCOUNT&quot; || &quot;$ACCOUNT&quot; == &quot;--commit&quot; ]] &amp;&amp; {
+  echo &quot;Usage: $0 &lt;user@domain&gt; [--commit]&quot; &gt;&amp;2; exit 2; }
+
+banner &quot;Revoke tokens and app passwords: $ACCOUNT&quot;
+mode_notice
+need_gam
+
+echo
+echo &quot;Current state (recorded before change):&quot;
+SNAP=&quot;$OUT_DIR/$(date +%Y-%m-%d)-pre-revoke-${ACCOUNT//[^a-zA-Z0-9]/_}.txt&quot;
+{
+  echo &quot;=== tokens ===&quot;; gam user &quot;$ACCOUNT&quot; show tokens 2&gt;/dev/null || true
+  echo &quot;=== asps ===&quot;;   gam user &quot;$ACCOUNT&quot; show asps   2&gt;/dev/null || true
+} | tee &quot;$SNAP&quot;
+echo
+echo &quot;Snapshot -&gt; $SNAP  (this is your only record of what was revoked)&quot;
+
+confirm
+run &quot;revoke all OAuth tokens for $ACCOUNT&quot; gam user &quot;$ACCOUNT&quot; delete tokens
+run &quot;revoke all app passwords for $ACCOUNT&quot; gam user &quot;$ACCOUNT&quot; delete asps all
+
+echo
+echo &quot;Verify: gam user $ACCOUNT show tokens   # expect empty&quot;
+echo &quot;        gam user $ACCOUNT show asps     # expect empty&quot;
+</code></pre></div></section>

@@ -55,11 +55,52 @@ MANIFEST = [
     ('CLAUDE.md',                          'conv',      'Repo conventions',             'ref'),
 ]
 
+def script_manifest():
+    """Every shell script under audit/gam/ gets its own section.
+
+    They are linked from the GAM READMEs, so without sections those links have
+    nowhere to go - previously they all collapsed onto the audit README, which
+    made 'click a script' either do nothing or jump to the wrong page.
+    """
+    out = []
+    for d, pref in (('audit/gam', 'sh'), ('audit/gam/remediation', 'shr')):
+        for f in sorted((ROOT / d).glob('*.sh')):
+            rel = str(f.relative_to(ROOT))
+            slug = f'{pref}-{f.stem.replace("_", "").replace(".", "-")}'
+            label = f.name + (' · remediation' if pref == 'shr' else '')
+            out.append((rel, slug, label, 'code'))
+    return out
+
+
+def script_to_markdown(path):
+    """Render a shell script as a document: leading comment block as prose,
+    then the whole script in a fenced block."""
+    text = (ROOT / path).read_text()
+    lines = text.split('\n')
+    lead = []
+    for ln in lines[1:]:                      # skip the shebang
+        if ln.startswith('#'):
+            lead.append(ln.lstrip('#').strip())
+        elif not ln.strip() and lead:
+            continue
+        else:
+            break
+    blurb = ' '.join(x for x in lead if x).strip()
+    warn = ''
+    if 'remediation' in path:
+        warn = ('> ⚠ **This script makes changes.** It is dry-run by default; '
+                '`--commit` is required to apply anything.\n\n')
+    return (f'# {pathlib.Path(path).name}\n\n{warn}'
+            + (f'{blurb}\n\n' if blurb else '')
+            + '```bash\n' + text + '\n```\n')
+
+
 TRACKS = [
     ('lead', 'Leadership', 'Read this one. One page, no jargon.'),
     ('tech', 'The controls', 'Setting-by-setting, per OU, with sources.'),
     ('run',  'Run it',      'Rollout order, incident procedures, audit tooling.'),
     ('say',  'Tell people', 'Ready-to-send templates for staff, guardians and vendors.'),
+    ('code', 'Scripts',     'Read-only audits first; anything that writes is separated.'),
     ('ref',  'Reference',   'Fill-in-first, assumptions, conventions.'),
 ]
 
@@ -82,10 +123,11 @@ RISK = [
 
 
 def build():
+    manifest = MANIFEST + script_manifest()
     # Keyed by repo-relative POSIX path. Keying on bare filenames silently
     # collides - there are three README.md files - and routes links to whichever
     # happened to be last in the manifest.
-    link_map = {f: f'doc-{slug}' for f, slug, _, _ in MANIFEST}
+    link_map = {f: f'doc-{slug}' for f, slug, _, _ in manifest}
     link_map.update({
         'README.md': 'top', 'TODO.md': 'top', 'CONTRIBUTING.md': 'top', 'LICENSE': 'top',
         'comms': 'doc-comms', 'comms/': 'doc-comms',
@@ -94,12 +136,11 @@ def build():
         'audit/gam/remediation': 'doc-gam-rem', 'audit/gam/remediation/': 'doc-gam-rem',
         'checklists/rollout-phases.md': 'doc-rollout',
     })
-    for p in (ROOT / 'audit/gam').rglob('*.sh'):
-        link_map.setdefault(str(p.relative_to(ROOT)), 'doc-gam')
+
 
     sections, navs = [], {t: [] for t, _, _ in TRACKS}
-    for f, slug, label, track in MANIFEST:
-        src = (ROOT / f).read_text()
+    for f, slug, label, track in manifest:
+        src = script_to_markdown(f) if f.endswith('.sh') else (ROOT / f).read_text()
         body, toc = mdlib.render(src, slug, link_map, f)
         subs = [(i, t) for lvl, i, t in toc if lvl == 2][:14]
         navs[track].append((slug, label, subs))
@@ -149,9 +190,18 @@ def _validate(page):
     if mdlib.UNRESOLVED:
         uniq = sorted(set(mdlib.UNRESOLVED))
         problems.append(f'{len(uniq)} unresolved link target(s): ' + '; '.join(uniq[:12]))
-    for f, slug, label, _ in MANIFEST:
+    for f, slug, label, _ in MANIFEST + script_manifest():
         if f'id="doc-{slug}"' not in page:
             problems.append(f'section missing from output: {f} ({label})')
+    selfies = []
+    for m in re.finditer(r'<section class="doc" id="(doc-[^"]+)">(.*?)</section>', page, re.S):
+        sid, body = m.group(1), m.group(2)
+        n = len(re.findall(r'<a href="#%s"' % re.escape(sid), body))
+        if n:
+            selfies.append(f'{sid} contains {n} link(s) to itself')
+    if selfies:
+        problems.append('self-referential links (clicking these does nothing): '
+                        + '; '.join(selfies[:8]))
     if problems:
         raise SystemExit('BUILD FAILED\n  ' + '\n  '.join(problems))
 
