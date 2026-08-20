@@ -1,0 +1,146 @@
+<title>Email Security: What We’re Changing and Why</title>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+@page{size:letter; margin:16mm 15mm 18mm}
+@page:first{margin:0}
+:root{
+  --ink:#0E1618; --ink-2:#42534F; --ink-3:#6E807D;
+  --rule:#C9D4D3; --rule-2:#AEBDBB; --surface:#F4F7F7; --surface-2:#EAEFEF;
+  --accent:#0F4C5C; --amber:#8A5C13; --amber-bg:#F6EEDD;
+  --brick:#8F3134; --brick-bg:#F5E3E3; --moss:#2F6446;
+  --sans:"Archivo",-apple-system,"Helvetica Neue",sans-serif;
+  --serif:"Source Serif 4",Georgia,serif;
+  --mono:"IBM Plex Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0; background:#fff; color:var(--ink); font-family:var(--serif);
+  font-size:9.6pt; line-height:1.5; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+
+/* cover */
+.cover{height:246mm; padding:26mm 22mm 0; page-break-after:always; position:relative;
+  background:var(--accent); color:#fff}
+.cover .rule{width:44mm; height:3pt; background:#fff; opacity:.55; margin-bottom:12mm}
+.cover .kicker{font-family:var(--sans); font-size:8pt; font-weight:600; letter-spacing:.22em;
+  text-transform:uppercase; opacity:.72; margin:0 0 6mm}
+.cover h1{font-family:var(--sans); font-size:34pt; font-weight:700; letter-spacing:-.025em;
+  line-height:1.04; margin:0 0 8mm; max-width:150mm}
+.cover .sub{font-size:12pt; line-height:1.5; opacity:.9; max-width:130mm; margin:0 0 14mm}
+.cover .facts{display:flex; flex-wrap:wrap; gap:5mm 12mm; font-family:var(--sans); font-size:8.5pt;
+  opacity:.85; padding-top:6mm; border-top:1px solid rgba(255,255,255,.28); max-width:150mm}
+.cover .facts b{display:block; font-size:15pt; font-weight:700; margin-bottom:1mm; opacity:1}
+.cover .foot{position:absolute; left:22mm; right:22mm; bottom:18mm; font-family:var(--sans);
+  font-size:8pt; opacity:.72; display:flex; justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,.28); padding-top:4mm}
+
+/* contents */
+.toc{page-break-after:always}
+.toc h2{font-family:var(--sans); font-size:16pt; font-weight:700; margin:0 0 6mm;
+  letter-spacing:-.02em}
+.toc ol{list-style:none; margin:0; padding:0; font-family:var(--sans); font-size:10pt;
+  columns:1}
+.toc li{padding:2.2mm 0; border-bottom:1px solid var(--rule); display:flex; gap:5mm}
+.toc .n{color:var(--ink-3); font-variant-numeric:tabular-nums; min-width:9mm}
+
+h1{font-family:var(--sans); font-size:19pt; font-weight:700; letter-spacing:-.022em;
+  line-height:1.12; margin:0 0 5mm; page-break-after:avoid}
+h2{font-family:var(--sans); font-size:12.5pt; font-weight:700; letter-spacing:-.012em;
+  margin:8mm 0 3mm; padding-top:3mm; border-top:1px solid var(--rule); page-break-after:avoid}
+h3{font-family:var(--sans); font-size:10.5pt; font-weight:600; margin:6mm 0 2mm; page-break-after:avoid}
+h4{font-family:var(--sans); font-size:8.6pt; font-weight:700; text-transform:uppercase;
+  letter-spacing:.07em; color:var(--ink-2); margin:5mm 0 2mm; page-break-after:avoid}
+p{margin:0 0 3mm; orphans:3; widows:3}
+ul,ol{margin:0 0 3.5mm; padding-left:5mm}
+li{margin:1mm 0}
+li.task{list-style:none; display:flex; gap:2mm; margin-left:-5mm}
+.box{flex:0 0 auto; width:8pt; height:8pt; margin-top:2.6pt; border:.8pt solid var(--rule-2); border-radius:1pt}
+.box.done{background:var(--accent); border-color:var(--accent)}
+a{color:var(--ink); text-decoration:none; border-bottom:.5pt solid var(--rule-2)}
+a.ext{color:var(--accent); border-bottom-color:var(--accent)}
+strong{font-weight:600}
+code{font-family:var(--mono); font-size:.86em; background:var(--surface-2);
+  padding:.3pt 1.4pt; border-radius:1.5pt; color:var(--accent)}
+hr{border:none; border-top:1px solid var(--rule); margin:6mm 0}
+
+.doc{page-break-before:always}
+.doc-meta{font-family:var(--mono); font-size:7pt; color:var(--ink-3); margin-bottom:2mm}
+
+.code{background:var(--surface); border:1px solid var(--rule); border-radius:2pt;
+  margin:0 0 4mm; page-break-inside:avoid}
+.code pre{margin:0; padding:3mm 3.5mm; overflow:hidden; white-space:pre-wrap; word-break:break-word}
+.code code{font-family:var(--mono); font-size:7.4pt; line-height:1.5; background:none;
+  padding:0; color:var(--ink-2)}
+.code-lang{display:none}
+
+blockquote{margin:0 0 4mm; padding:2.6mm 3.4mm; background:var(--surface);
+  border-left:2.4pt solid var(--rule-2); page-break-inside:avoid}
+blockquote :last-child{margin-bottom:0}
+blockquote.warn{background:var(--amber-bg); border-left-color:var(--amber)}
+blockquote.verify{background:var(--surface-2); border-left-color:var(--accent)}
+
+.table-wrap{margin:0 0 4mm; border:1px solid var(--rule); border-radius:2pt; overflow:hidden}
+table{border-collapse:collapse; width:100%; font-family:var(--sans); font-size:7.4pt;
+  line-height:1.35; table-layout:fixed; font-variant-numeric:tabular-nums}
+th{background:var(--surface-2); text-align:left; font-weight:700; font-size:6.6pt;
+  text-transform:uppercase; letter-spacing:.04em; color:var(--ink-2);
+  padding:1.8mm 1.6mm; border-bottom:.8pt solid var(--rule-2)}
+td{padding:1.6mm; border-top:.5pt solid var(--rule); vertical-align:top; color:var(--ink-2);
+  word-wrap:break-word; overflow-wrap:anywhere}
+td strong{color:var(--ink)}
+td.sev-high{color:var(--brick); font-weight:700}
+td.sev-med{color:var(--amber); font-weight:700}
+td.sev-low{color:var(--moss); font-weight:700}
+table,blockquote{page-break-inside:avoid}
+</style>
+<div class="cover"><div class="rule"></div>
+<p class="kicker">Cabinet briefing</p>
+<h1>Email Security: What We’re Changing and Why</h1><p class="sub">A one-page briefing for the superintendent and cabinet — the threat picture, what changes, what it costs staff, and what it prevents.</p>
+<div class="facts"><div><b>12</b>threats assessed</div><div><b>4</b>that stay high risk</div><div><b>5</b>asks of the cabinet</div></div>
+<div class="foot"><span>Research date 20 August 2026</span><span>Console paths verified against current Google documentation</span></div></div>
+<section class="doc" id="doc-exec" style="page-break-before:auto"><div class="doc-meta">docs/10-exec-summary.md</div><h1 id="exec-email-security-what-we-re-changing-and-why">Email Security: What We&#x27;re Changing and Why</h1>
+<p><strong>For: Superintendent and Cabinet</strong> · <strong>From: Technology Department</strong> · <strong>Date: 2026-08-20</strong></p>
+<hr>
+<h2 id="exec-the-situation">The situation</h2>
+<p>Criminals target school districts because we are large, public, and predictable. Our leadership names, titles, and email addresses are published on our own website. That is all someone needs to start.</p>
+<p>Four things are happening to districts like ours right now:</p>
+<p><strong>Someone pretends to be a district leader.</strong> An email arrives with the superintendent&#x27;s or a principal&#x27;s name on it, asking a staff member to buy gift cards, approve a payment, or &quot;handle something quickly and quietly.&quot; AI writing tools have removed the spelling mistakes that used to give these away.</p>
+<p><strong>Someone redirects a paycheck.</strong> A staff member is tricked into giving up their password. A few days later their direct deposit is quietly changed to a criminal&#x27;s account. Nobody finds out until payday.</p>
+<p><strong>Someone poses as a vendor we already work with.</strong> A real vendor&#x27;s email account is broken into. The criminal replies inside a real invoice conversation and changes the payment details. Everything looks legitimate because almost all of it is. <strong>This is the most expensive category in K-12 — losses typically run into six figures.</strong></p>
+<p><strong>Someone steals a password even though we use a security code.</strong> New attack tools sit invisibly between the user and the real sign-in page. The user enters their password, enters their code, and everything works normally — but the criminal captures the session and walks in behind them.</p>
+<p>Nationally, <strong>82% of reporting school districts experienced a cyber incident</strong> over an 18-month period. In the first half of this year alone there were <strong>34 ransomware attacks</strong> against American schools and colleges. Nearly all of it starts with email.</p>
+<hr>
+<h2 id="exec-what-we-re-doing-about-it">What we&#x27;re doing about it</h2>
+<p><strong>Stronger filtering on incoming mail.</strong> Messages impersonating a district leader are held for review rather than delivered. Risky attachments are opened in an isolated environment first. This is the single most effective change we&#x27;re making, and staff will barely notice it.</p>
+<p><strong>Locking down our mass email lists.</strong> Today, one message can reach every employee at once. We&#x27;re limiting who can send to district-wide lists, so a fake message from &quot;the superintendent&quot; reaches a handful of people instead of everyone.</p>
+<p><strong>A second step at sign-in for all staff.</strong> A password alone will no longer be enough.</p>
+<p><strong>Physical security keys for about thirty people</strong> — payroll, HR, finance, and technology administrators. These are the accounts that can move money or change everything, and a physical key is the only method that defeats the attack described above. <strong>Cost: roughly $1,500–3,000, one time.</strong></p>
+<p><strong>Approval before apps can connect to district accounts.</strong> A common trick is a fake app that asks for permission to read your email. Once granted, it keeps reading even after you change your password. We&#x27;ll approve apps centrally, with a <strong>10-school-day turnaround</strong> for teacher requests.</p>
+<p><strong>Proving our own email is genuinely ours.</strong> We&#x27;re publishing internet records so that messages faking our domain are rejected before they arrive anywhere. <strong>This takes about three months and must be done carefully</strong> — rushing it would stop legitimate messages to parents.</p>
+<p><strong>Tighter settings on student accounts.</strong> Outside adults will not be able to send files to students or chat with them through school accounts.</p>
+<p><strong>Knowing quickly when something gets through.</strong> Alerts routed to a monitored address, and the ability to remove a bad message from every inbox in the district within minutes.</p>
+<hr>
+<h2 id="exec-what-it-costs-users">What it costs users</h2>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Change</th><th style="text-align:left">What people notice</th></tr></thead><tbody><tr><td style="text-align:left">Stronger filtering</td><td style="text-align:left">Occasionally an expected attachment is delayed. Call the help desk</td></tr><tr><td style="text-align:left">Second sign-in step</td><td style="text-align:left">About three minutes to set up. A quick check at sign-in</td></tr><tr><td style="text-align:left">Security keys (~30 staff)</td><td style="text-align:left">A physical key on the keyring for finance and IT staff</td></tr><tr><td style="text-align:left">App approval</td><td style="text-align:left">Teachers request new apps instead of connecting them directly</td></tr><tr><td style="text-align:left">Student restrictions</td><td style="text-align:left">Students ask a teacher to share work outside the district</td></tr><tr><td style="text-align:left">Email authentication</td><td style="text-align:left">Nothing, if we do it correctly</td></tr></tbody></table></div>
+<p><strong>Our commitment: if any of this interferes with teaching, we roll it back the same day and find another way.</strong> That rule is written into the plan.</p>
+<hr>
+<h2 id="exec-what-it-prevents">What it prevents</h2>
+<ul><li>A fake message from a district leader reaching every employee at once</li><li>A staff paycheck being redirected without anyone noticing for a full pay cycle</li><li>A six-figure payment sent to a criminal in a real vendor conversation</li><li>A stolen password becoming access to student records and payroll</li><li>A break-in continuing after we thought we had fixed it</li><li>Outside adults contacting students through school-issued accounts</li></ul>
+<hr>
+<h2 id="exec-what-this-does-not-fix">What this does <strong>not</strong> fix</h2>
+<p>We want to be straight about this rather than overstate it.</p>
+<p><strong>Three risks stay significant even after everything above</strong>, because no email setting can close them:</p>
+<ol><li><strong>Vendor invoice fraud.</strong> When a real vendor&#x27;s account is broken into, the message is genuinely from them. <strong>The only reliable protection is a phone call to a number we had on file before the request.</strong> That is a finance procedure, not a technology setting, and it needs the CFO&#x27;s sign-off.</li></ol>
+<ol><li><strong>QR codes.</strong> A code on a flyer in a staff lounge never touches our email system at all. That is awareness, not configuration.</li></ol>
+<ol><li><strong>Scams aimed at students directly</strong> — particularly threats to share private images. These happen on apps we do not control, on personal phones, after hours. <strong>What we can control is whether a frightened student believes they can tell an adult without getting in trouble.</strong> That is a counseling and culture question, and it matters more than anything in this document.</li></ol>
+<p><strong>Also outside this plan</strong> and needed separately: computer security software, network separation, and <strong>tested offline backups</strong> — the last of which is the only thing that reliably survives a ransomware attack.</p>
+<hr>
+<h2 id="exec-what-we-need">What we need</h2>
+<ol><li><strong>Endorsement of the plan</strong>, so the technology department is not negotiating each change individually.</li><li><strong>Approval to purchase security keys</strong> — roughly $1,500–3,000, one time.</li><li><strong>A finance procedure requiring a phone callback</strong> before any banking change, for payroll or vendors. <strong>This single procedure prevents the most expensive incidents in this document, and it costs nothing.</strong></li><li><strong>Explicit permission for staff to slow down and verify</strong> — including when the request appears to come from a district leader. This needs to be said out loud, by the superintendent, in writing. A payroll clerk who fears being criticized for questioning the superintendent will process the fraudulent change.</li><li><strong>Two 90-minute tabletop exercises per year</strong> with the cabinet. Not technical — decisions. Who notifies parents, who talks to the press, when the board is told. Those are the questions that go badly in a real incident and they are free to practice.</li></ol>
+<hr>
+<h2 id="exec-timeline">Timeline</h2>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">When</th><th style="text-align:left">What</th><th style="text-align:left">Impact</th></tr></thead><tbody><tr><td style="text-align:left">Weeks 1–2</td><td style="text-align:left">Baseline, no changes</td><td style="text-align:left">None</td></tr><tr><td style="text-align:left">Weeks 3–5</td><td style="text-align:left"><strong>Filtering, mass lists, admin accounts</strong></td><td style="text-align:left">Minimal — <strong>most of the benefit</strong></td></tr><tr><td style="text-align:left">Months 2–3</td><td style="text-align:left">Second sign-in step, app approval</td><td style="text-align:left">Noticeable, supported</td></tr><tr><td style="text-align:left">Months 3–6</td><td style="text-align:left">Email authentication</td><td style="text-align:left">None if done carefully</td></tr><tr><td style="text-align:left">Months 6–7</td><td style="text-align:left">Student settings</td><td style="text-align:left">Moderate, coordinated with instruction</td></tr><tr><td style="text-align:left">Ongoing</td><td style="text-align:left">Monitoring, training, exercises</td><td style="text-align:left">—</td></tr></tbody></table></div>
+<p><strong>The first month delivers most of the protection.</strong> Everything after that is either politically harder or technically slower, but the largest gains come early — and they start as soon as we have your endorsement.</p>
+<hr>
+<p><em>Detail, sources, and step-by-step procedures: this repository. Questions: Technology Director.</em></p></section>

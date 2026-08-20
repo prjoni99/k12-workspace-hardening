@@ -9,6 +9,22 @@ current Google support article on that date is tagged `[VERIFY]` rather than gue
 
 ---
 
+## Read it without cloning anything
+
+Not everyone who needs this reads markdown. Three editions, same source:
+
+| Edition | Who it's for | Notes |
+| --- | --- | --- |
+| **Web** — see repo description for the link | Anyone | Full package, sidebar navigation, searchable, works on a phone. Prints to PDF from the browser. |
+| **`dist/K-12-Workspace-Hardening-Exec-Summary.pdf`** | Superintendent, cabinet, board | 5 pages. Threat picture, what changes, what it costs, what we need. |
+| **`dist/K-12-Workspace-Hardening-Full-Package.pdf`** | District IT | 136 pages, everything, with a contents page. |
+
+The web and PDF editions are **generated** from the markdown — edit the markdown, then
+`python3 tools/build-site.py` and `./tools/make-pdfs.sh`. Never edit them by hand; they
+will be overwritten.
+
+---
+
 ## Start here
 
 1. Fill in **[config/district-profile.md](config/district-profile.md)** — nothing else
